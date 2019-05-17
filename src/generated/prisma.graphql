@@ -1,0 +1,5366 @@
+type AggregateComment {
+  count: Int!
+}
+
+type AggregateExercise {
+  count: Int!
+}
+
+type AggregateFolowPage {
+  count: Int!
+}
+
+type AggregateFriend {
+  count: Int!
+}
+
+type AggregateGroup {
+  count: Int!
+}
+
+type AggregateMenber {
+  count: Int!
+}
+
+type AggregateNotification {
+  count: Int!
+}
+
+type AggregatePage {
+  count: Int!
+}
+
+type AggregatePost {
+  count: Int!
+}
+
+type AggregateQuestion {
+  count: Int!
+}
+
+type AggregateQuestionGroup {
+  count: Int!
+}
+
+type AggregateTask {
+  count: Int!
+}
+
+type AggregateTopic {
+  count: Int!
+}
+
+type AggregateTopicGroup {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type BatchPayload {
+  count: Long!
+}
+
+type Comment {
+  id: ID!
+  text: String!
+  author: User!
+  post: Post!
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type CommentConnection {
+  pageInfo: PageInfo!
+  edges: [CommentEdge]!
+  aggregate: AggregateComment!
+}
+
+input CommentCreateInput {
+  text: String!
+  author: UserCreateOneWithoutCommentsInput!
+  post: PostCreateOneWithoutCommentsInput!
+}
+
+input CommentCreateManyWithoutAuthorInput {
+  create: [CommentCreateWithoutAuthorInput!]
+  connect: [CommentWhereUniqueInput!]
+}
+
+input CommentCreateManyWithoutPostInput {
+  create: [CommentCreateWithoutPostInput!]
+  connect: [CommentWhereUniqueInput!]
+}
+
+input CommentCreateWithoutAuthorInput {
+  text: String!
+  post: PostCreateOneWithoutCommentsInput!
+}
+
+input CommentCreateWithoutPostInput {
+  text: String!
+  author: UserCreateOneWithoutCommentsInput!
+}
+
+type CommentEdge {
+  node: Comment!
+  cursor: String!
+}
+
+enum CommentOrderByInput {
+  id_ASC
+  id_DESC
+  text_ASC
+  text_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type CommentPreviousValues {
+  id: ID!
+  text: String!
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+input CommentScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  text: String
+  text_not: String
+  text_in: [String!]
+  text_not_in: [String!]
+  text_lt: String
+  text_lte: String
+  text_gt: String
+  text_gte: String
+  text_contains: String
+  text_not_contains: String
+  text_starts_with: String
+  text_not_starts_with: String
+  text_ends_with: String
+  text_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [CommentScalarWhereInput!]
+  OR: [CommentScalarWhereInput!]
+  NOT: [CommentScalarWhereInput!]
+}
+
+type CommentSubscriptionPayload {
+  mutation: MutationType!
+  node: Comment
+  updatedFields: [String!]
+  previousValues: CommentPreviousValues
+}
+
+input CommentSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CommentWhereInput
+  AND: [CommentSubscriptionWhereInput!]
+  OR: [CommentSubscriptionWhereInput!]
+  NOT: [CommentSubscriptionWhereInput!]
+}
+
+input CommentUpdateInput {
+  text: String
+  author: UserUpdateOneRequiredWithoutCommentsInput
+  post: PostUpdateOneRequiredWithoutCommentsInput
+}
+
+input CommentUpdateManyDataInput {
+  text: String
+}
+
+input CommentUpdateManyMutationInput {
+  text: String
+}
+
+input CommentUpdateManyWithoutAuthorInput {
+  create: [CommentCreateWithoutAuthorInput!]
+  delete: [CommentWhereUniqueInput!]
+  connect: [CommentWhereUniqueInput!]
+  set: [CommentWhereUniqueInput!]
+  disconnect: [CommentWhereUniqueInput!]
+  update: [CommentUpdateWithWhereUniqueWithoutAuthorInput!]
+  upsert: [CommentUpsertWithWhereUniqueWithoutAuthorInput!]
+  deleteMany: [CommentScalarWhereInput!]
+  updateMany: [CommentUpdateManyWithWhereNestedInput!]
+}
+
+input CommentUpdateManyWithoutPostInput {
+  create: [CommentCreateWithoutPostInput!]
+  delete: [CommentWhereUniqueInput!]
+  connect: [CommentWhereUniqueInput!]
+  set: [CommentWhereUniqueInput!]
+  disconnect: [CommentWhereUniqueInput!]
+  update: [CommentUpdateWithWhereUniqueWithoutPostInput!]
+  upsert: [CommentUpsertWithWhereUniqueWithoutPostInput!]
+  deleteMany: [CommentScalarWhereInput!]
+  updateMany: [CommentUpdateManyWithWhereNestedInput!]
+}
+
+input CommentUpdateManyWithWhereNestedInput {
+  where: CommentScalarWhereInput!
+  data: CommentUpdateManyDataInput!
+}
+
+input CommentUpdateWithoutAuthorDataInput {
+  text: String
+  post: PostUpdateOneRequiredWithoutCommentsInput
+}
+
+input CommentUpdateWithoutPostDataInput {
+  text: String
+  author: UserUpdateOneRequiredWithoutCommentsInput
+}
+
+input CommentUpdateWithWhereUniqueWithoutAuthorInput {
+  where: CommentWhereUniqueInput!
+  data: CommentUpdateWithoutAuthorDataInput!
+}
+
+input CommentUpdateWithWhereUniqueWithoutPostInput {
+  where: CommentWhereUniqueInput!
+  data: CommentUpdateWithoutPostDataInput!
+}
+
+input CommentUpsertWithWhereUniqueWithoutAuthorInput {
+  where: CommentWhereUniqueInput!
+  update: CommentUpdateWithoutAuthorDataInput!
+  create: CommentCreateWithoutAuthorInput!
+}
+
+input CommentUpsertWithWhereUniqueWithoutPostInput {
+  where: CommentWhereUniqueInput!
+  update: CommentUpdateWithoutPostDataInput!
+  create: CommentCreateWithoutPostInput!
+}
+
+input CommentWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  text: String
+  text_not: String
+  text_in: [String!]
+  text_not_in: [String!]
+  text_lt: String
+  text_lte: String
+  text_gt: String
+  text_gte: String
+  text_contains: String
+  text_not_contains: String
+  text_starts_with: String
+  text_not_starts_with: String
+  text_ends_with: String
+  text_not_ends_with: String
+  author: UserWhereInput
+  post: PostWhereInput
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [CommentWhereInput!]
+  OR: [CommentWhereInput!]
+  NOT: [CommentWhereInput!]
+}
+
+input CommentWhereUniqueInput {
+  id: ID
+}
+
+scalar DateTime
+
+type Exercise {
+  id: ID!
+  group: Group!
+  title: String!
+  description: String
+  body: String!
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime!
+  end_time: DateTime!
+  creat_admin: User!
+  tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task!]
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type ExerciseConnection {
+  pageInfo: PageInfo!
+  edges: [ExerciseEdge]!
+  aggregate: AggregateExercise!
+}
+
+input ExerciseCreateInput {
+  group: GroupCreateOneWithoutExercisesInput!
+  title: String!
+  description: String
+  body: String!
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime!
+  end_time: DateTime!
+  creat_admin: UserCreateOneWithoutExercisesInput!
+  tasks: TaskCreateManyWithoutExerciseInput
+}
+
+input ExerciseCreateManyWithoutCreat_adminInput {
+  create: [ExerciseCreateWithoutCreat_adminInput!]
+  connect: [ExerciseWhereUniqueInput!]
+}
+
+input ExerciseCreateManyWithoutGroupInput {
+  create: [ExerciseCreateWithoutGroupInput!]
+  connect: [ExerciseWhereUniqueInput!]
+}
+
+input ExerciseCreateOneWithoutTasksInput {
+  create: ExerciseCreateWithoutTasksInput
+  connect: ExerciseWhereUniqueInput
+}
+
+input ExerciseCreateWithoutCreat_adminInput {
+  group: GroupCreateOneWithoutExercisesInput!
+  title: String!
+  description: String
+  body: String!
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime!
+  end_time: DateTime!
+  tasks: TaskCreateManyWithoutExerciseInput
+}
+
+input ExerciseCreateWithoutGroupInput {
+  title: String!
+  description: String
+  body: String!
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime!
+  end_time: DateTime!
+  creat_admin: UserCreateOneWithoutExercisesInput!
+  tasks: TaskCreateManyWithoutExerciseInput
+}
+
+input ExerciseCreateWithoutTasksInput {
+  group: GroupCreateOneWithoutExercisesInput!
+  title: String!
+  description: String
+  body: String!
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime!
+  end_time: DateTime!
+  creat_admin: UserCreateOneWithoutExercisesInput!
+}
+
+type ExerciseEdge {
+  node: Exercise!
+  cursor: String!
+}
+
+enum ExerciseOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  description_ASC
+  description_DESC
+  body_ASC
+  body_DESC
+  arrangement_ASC
+  arrangement_DESC
+  quantity_max_ASC
+  quantity_max_DESC
+  time_ASC
+  time_DESC
+  start_time_ASC
+  start_time_DESC
+  end_time_ASC
+  end_time_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type ExercisePreviousValues {
+  id: ID!
+  title: String!
+  description: String
+  body: String!
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime!
+  end_time: DateTime!
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+input ExerciseScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  body: String
+  body_not: String
+  body_in: [String!]
+  body_not_in: [String!]
+  body_lt: String
+  body_lte: String
+  body_gt: String
+  body_gte: String
+  body_contains: String
+  body_not_contains: String
+  body_starts_with: String
+  body_not_starts_with: String
+  body_ends_with: String
+  body_not_ends_with: String
+  arrangement: Boolean
+  arrangement_not: Boolean
+  quantity_max: Int
+  quantity_max_not: Int
+  quantity_max_in: [Int!]
+  quantity_max_not_in: [Int!]
+  quantity_max_lt: Int
+  quantity_max_lte: Int
+  quantity_max_gt: Int
+  quantity_max_gte: Int
+  time: Int
+  time_not: Int
+  time_in: [Int!]
+  time_not_in: [Int!]
+  time_lt: Int
+  time_lte: Int
+  time_gt: Int
+  time_gte: Int
+  start_time: DateTime
+  start_time_not: DateTime
+  start_time_in: [DateTime!]
+  start_time_not_in: [DateTime!]
+  start_time_lt: DateTime
+  start_time_lte: DateTime
+  start_time_gt: DateTime
+  start_time_gte: DateTime
+  end_time: DateTime
+  end_time_not: DateTime
+  end_time_in: [DateTime!]
+  end_time_not_in: [DateTime!]
+  end_time_lt: DateTime
+  end_time_lte: DateTime
+  end_time_gt: DateTime
+  end_time_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [ExerciseScalarWhereInput!]
+  OR: [ExerciseScalarWhereInput!]
+  NOT: [ExerciseScalarWhereInput!]
+}
+
+type ExerciseSubscriptionPayload {
+  mutation: MutationType!
+  node: Exercise
+  updatedFields: [String!]
+  previousValues: ExercisePreviousValues
+}
+
+input ExerciseSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ExerciseWhereInput
+  AND: [ExerciseSubscriptionWhereInput!]
+  OR: [ExerciseSubscriptionWhereInput!]
+  NOT: [ExerciseSubscriptionWhereInput!]
+}
+
+input ExerciseUpdateInput {
+  group: GroupUpdateOneRequiredWithoutExercisesInput
+  title: String
+  description: String
+  body: String
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime
+  end_time: DateTime
+  creat_admin: UserUpdateOneRequiredWithoutExercisesInput
+  tasks: TaskUpdateManyWithoutExerciseInput
+}
+
+input ExerciseUpdateManyDataInput {
+  title: String
+  description: String
+  body: String
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime
+  end_time: DateTime
+}
+
+input ExerciseUpdateManyMutationInput {
+  title: String
+  description: String
+  body: String
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime
+  end_time: DateTime
+}
+
+input ExerciseUpdateManyWithoutCreat_adminInput {
+  create: [ExerciseCreateWithoutCreat_adminInput!]
+  delete: [ExerciseWhereUniqueInput!]
+  connect: [ExerciseWhereUniqueInput!]
+  set: [ExerciseWhereUniqueInput!]
+  disconnect: [ExerciseWhereUniqueInput!]
+  update: [ExerciseUpdateWithWhereUniqueWithoutCreat_adminInput!]
+  upsert: [ExerciseUpsertWithWhereUniqueWithoutCreat_adminInput!]
+  deleteMany: [ExerciseScalarWhereInput!]
+  updateMany: [ExerciseUpdateManyWithWhereNestedInput!]
+}
+
+input ExerciseUpdateManyWithoutGroupInput {
+  create: [ExerciseCreateWithoutGroupInput!]
+  delete: [ExerciseWhereUniqueInput!]
+  connect: [ExerciseWhereUniqueInput!]
+  set: [ExerciseWhereUniqueInput!]
+  disconnect: [ExerciseWhereUniqueInput!]
+  update: [ExerciseUpdateWithWhereUniqueWithoutGroupInput!]
+  upsert: [ExerciseUpsertWithWhereUniqueWithoutGroupInput!]
+  deleteMany: [ExerciseScalarWhereInput!]
+  updateMany: [ExerciseUpdateManyWithWhereNestedInput!]
+}
+
+input ExerciseUpdateManyWithWhereNestedInput {
+  where: ExerciseScalarWhereInput!
+  data: ExerciseUpdateManyDataInput!
+}
+
+input ExerciseUpdateOneRequiredWithoutTasksInput {
+  create: ExerciseCreateWithoutTasksInput
+  update: ExerciseUpdateWithoutTasksDataInput
+  upsert: ExerciseUpsertWithoutTasksInput
+  connect: ExerciseWhereUniqueInput
+}
+
+input ExerciseUpdateWithoutCreat_adminDataInput {
+  group: GroupUpdateOneRequiredWithoutExercisesInput
+  title: String
+  description: String
+  body: String
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime
+  end_time: DateTime
+  tasks: TaskUpdateManyWithoutExerciseInput
+}
+
+input ExerciseUpdateWithoutGroupDataInput {
+  title: String
+  description: String
+  body: String
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime
+  end_time: DateTime
+  creat_admin: UserUpdateOneRequiredWithoutExercisesInput
+  tasks: TaskUpdateManyWithoutExerciseInput
+}
+
+input ExerciseUpdateWithoutTasksDataInput {
+  group: GroupUpdateOneRequiredWithoutExercisesInput
+  title: String
+  description: String
+  body: String
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime
+  end_time: DateTime
+  creat_admin: UserUpdateOneRequiredWithoutExercisesInput
+}
+
+input ExerciseUpdateWithWhereUniqueWithoutCreat_adminInput {
+  where: ExerciseWhereUniqueInput!
+  data: ExerciseUpdateWithoutCreat_adminDataInput!
+}
+
+input ExerciseUpdateWithWhereUniqueWithoutGroupInput {
+  where: ExerciseWhereUniqueInput!
+  data: ExerciseUpdateWithoutGroupDataInput!
+}
+
+input ExerciseUpsertWithoutTasksInput {
+  update: ExerciseUpdateWithoutTasksDataInput!
+  create: ExerciseCreateWithoutTasksInput!
+}
+
+input ExerciseUpsertWithWhereUniqueWithoutCreat_adminInput {
+  where: ExerciseWhereUniqueInput!
+  update: ExerciseUpdateWithoutCreat_adminDataInput!
+  create: ExerciseCreateWithoutCreat_adminInput!
+}
+
+input ExerciseUpsertWithWhereUniqueWithoutGroupInput {
+  where: ExerciseWhereUniqueInput!
+  update: ExerciseUpdateWithoutGroupDataInput!
+  create: ExerciseCreateWithoutGroupInput!
+}
+
+input ExerciseWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  group: GroupWhereInput
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  body: String
+  body_not: String
+  body_in: [String!]
+  body_not_in: [String!]
+  body_lt: String
+  body_lte: String
+  body_gt: String
+  body_gte: String
+  body_contains: String
+  body_not_contains: String
+  body_starts_with: String
+  body_not_starts_with: String
+  body_ends_with: String
+  body_not_ends_with: String
+  arrangement: Boolean
+  arrangement_not: Boolean
+  quantity_max: Int
+  quantity_max_not: Int
+  quantity_max_in: [Int!]
+  quantity_max_not_in: [Int!]
+  quantity_max_lt: Int
+  quantity_max_lte: Int
+  quantity_max_gt: Int
+  quantity_max_gte: Int
+  time: Int
+  time_not: Int
+  time_in: [Int!]
+  time_not_in: [Int!]
+  time_lt: Int
+  time_lte: Int
+  time_gt: Int
+  time_gte: Int
+  start_time: DateTime
+  start_time_not: DateTime
+  start_time_in: [DateTime!]
+  start_time_not_in: [DateTime!]
+  start_time_lt: DateTime
+  start_time_lte: DateTime
+  start_time_gt: DateTime
+  start_time_gte: DateTime
+  end_time: DateTime
+  end_time_not: DateTime
+  end_time_in: [DateTime!]
+  end_time_not_in: [DateTime!]
+  end_time_lt: DateTime
+  end_time_lte: DateTime
+  end_time_gt: DateTime
+  end_time_gte: DateTime
+  creat_admin: UserWhereInput
+  tasks_every: TaskWhereInput
+  tasks_some: TaskWhereInput
+  tasks_none: TaskWhereInput
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [ExerciseWhereInput!]
+  OR: [ExerciseWhereInput!]
+  NOT: [ExerciseWhereInput!]
+}
+
+input ExerciseWhereUniqueInput {
+  id: ID
+}
+
+type FolowPage {
+  user: User!
+  page: Page!
+  admin_only: Boolean
+  status: Int
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type FolowPageConnection {
+  pageInfo: PageInfo!
+  edges: [FolowPageEdge]!
+  aggregate: AggregateFolowPage!
+}
+
+input FolowPageCreateInput {
+  user: UserCreateOneWithoutFolowsInput!
+  page: PageCreateOneWithoutFolowsInput!
+  admin_only: Boolean
+  status: Int
+}
+
+input FolowPageCreateManyWithoutPageInput {
+  create: [FolowPageCreateWithoutPageInput!]
+  connect: [FolowPageWhereUniqueInput!]
+}
+
+input FolowPageCreateManyWithoutUserInput {
+  create: [FolowPageCreateWithoutUserInput!]
+  connect: [FolowPageWhereUniqueInput!]
+}
+
+input FolowPageCreateWithoutPageInput {
+  user: UserCreateOneWithoutFolowsInput!
+  admin_only: Boolean
+  status: Int
+}
+
+input FolowPageCreateWithoutUserInput {
+  page: PageCreateOneWithoutFolowsInput!
+  admin_only: Boolean
+  status: Int
+}
+
+type FolowPageEdge {
+  node: FolowPage!
+  cursor: String!
+}
+
+enum FolowPageOrderByInput {
+  admin_only_ASC
+  admin_only_DESC
+  status_ASC
+  status_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+}
+
+type FolowPagePreviousValues {
+  admin_only: Boolean
+  status: Int
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+input FolowPageScalarWhereInput {
+  admin_only: Boolean
+  admin_only_not: Boolean
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [FolowPageScalarWhereInput!]
+  OR: [FolowPageScalarWhereInput!]
+  NOT: [FolowPageScalarWhereInput!]
+}
+
+type FolowPageSubscriptionPayload {
+  mutation: MutationType!
+  node: FolowPage
+  updatedFields: [String!]
+  previousValues: FolowPagePreviousValues
+}
+
+input FolowPageSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: FolowPageWhereInput
+  AND: [FolowPageSubscriptionWhereInput!]
+  OR: [FolowPageSubscriptionWhereInput!]
+  NOT: [FolowPageSubscriptionWhereInput!]
+}
+
+input FolowPageUpdateInput {
+  user: UserUpdateOneRequiredWithoutFolowsInput
+  page: PageUpdateOneRequiredWithoutFolowsInput
+  admin_only: Boolean
+  status: Int
+}
+
+input FolowPageUpdateManyDataInput {
+  admin_only: Boolean
+  status: Int
+}
+
+input FolowPageUpdateManyMutationInput {
+  admin_only: Boolean
+  status: Int
+}
+
+input FolowPageUpdateManyWithoutPageInput {
+  create: [FolowPageCreateWithoutPageInput!]
+  delete: [FolowPageWhereUniqueInput!]
+  connect: [FolowPageWhereUniqueInput!]
+  set: [FolowPageWhereUniqueInput!]
+  disconnect: [FolowPageWhereUniqueInput!]
+  update: [FolowPageUpdateWithWhereUniqueWithoutPageInput!]
+  upsert: [FolowPageUpsertWithWhereUniqueWithoutPageInput!]
+  deleteMany: [FolowPageScalarWhereInput!]
+  updateMany: [FolowPageUpdateManyWithWhereNestedInput!]
+}
+
+input FolowPageUpdateManyWithoutUserInput {
+  create: [FolowPageCreateWithoutUserInput!]
+  delete: [FolowPageWhereUniqueInput!]
+  connect: [FolowPageWhereUniqueInput!]
+  set: [FolowPageWhereUniqueInput!]
+  disconnect: [FolowPageWhereUniqueInput!]
+  update: [FolowPageUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [FolowPageUpsertWithWhereUniqueWithoutUserInput!]
+  deleteMany: [FolowPageScalarWhereInput!]
+  updateMany: [FolowPageUpdateManyWithWhereNestedInput!]
+}
+
+input FolowPageUpdateManyWithWhereNestedInput {
+  where: FolowPageScalarWhereInput!
+  data: FolowPageUpdateManyDataInput!
+}
+
+input FolowPageUpdateWithoutPageDataInput {
+  user: UserUpdateOneRequiredWithoutFolowsInput
+  admin_only: Boolean
+  status: Int
+}
+
+input FolowPageUpdateWithoutUserDataInput {
+  page: PageUpdateOneRequiredWithoutFolowsInput
+  admin_only: Boolean
+  status: Int
+}
+
+input FolowPageUpdateWithWhereUniqueWithoutPageInput {
+  where: FolowPageWhereUniqueInput!
+  data: FolowPageUpdateWithoutPageDataInput!
+}
+
+input FolowPageUpdateWithWhereUniqueWithoutUserInput {
+  where: FolowPageWhereUniqueInput!
+  data: FolowPageUpdateWithoutUserDataInput!
+}
+
+input FolowPageUpsertWithWhereUniqueWithoutPageInput {
+  where: FolowPageWhereUniqueInput!
+  update: FolowPageUpdateWithoutPageDataInput!
+  create: FolowPageCreateWithoutPageInput!
+}
+
+input FolowPageUpsertWithWhereUniqueWithoutUserInput {
+  where: FolowPageWhereUniqueInput!
+  update: FolowPageUpdateWithoutUserDataInput!
+  create: FolowPageCreateWithoutUserInput!
+}
+
+input FolowPageWhereInput {
+  user: UserWhereInput
+  page: PageWhereInput
+  admin_only: Boolean
+  admin_only_not: Boolean
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [FolowPageWhereInput!]
+  OR: [FolowPageWhereInput!]
+  NOT: [FolowPageWhereInput!]
+}
+
+input FolowPageWhereUniqueInput {
+  id_user: ID!
+  id_page: ID!
+}
+
+type Friend {
+  me: User!
+  to: User!
+  folow: Boolean
+  status: Int
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type FriendConnection {
+  pageInfo: PageInfo!
+  edges: [FriendEdge]!
+  aggregate: AggregateFriend!
+}
+
+input FriendCreateInput {
+  me: UserCreateOneWithoutFriendsInput!
+  to: UserCreateOneWithoutFriendstoInput!
+  folow: Boolean
+  status: Int
+}
+
+input FriendCreateManyWithoutMeInput {
+  create: [FriendCreateWithoutMeInput!]
+  connect: [FriendWhereUniqueInput!]
+}
+
+input FriendCreateManyWithoutToInput {
+  create: [FriendCreateWithoutToInput!]
+  connect: [FriendWhereUniqueInput!]
+}
+
+input FriendCreateWithoutMeInput {
+  to: UserCreateOneWithoutFriendstoInput!
+  folow: Boolean
+  status: Int
+}
+
+input FriendCreateWithoutToInput {
+  me: UserCreateOneWithoutFriendsInput!
+  folow: Boolean
+  status: Int
+}
+
+type FriendEdge {
+  node: Friend!
+  cursor: String!
+}
+
+enum FriendOrderByInput {
+  folow_ASC
+  folow_DESC
+  status_ASC
+  status_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+}
+
+type FriendPreviousValues {
+  folow: Boolean
+  status: Int
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+input FriendScalarWhereInput {
+  folow: Boolean
+  folow_not: Boolean
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [FriendScalarWhereInput!]
+  OR: [FriendScalarWhereInput!]
+  NOT: [FriendScalarWhereInput!]
+}
+
+type FriendSubscriptionPayload {
+  mutation: MutationType!
+  node: Friend
+  updatedFields: [String!]
+  previousValues: FriendPreviousValues
+}
+
+input FriendSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: FriendWhereInput
+  AND: [FriendSubscriptionWhereInput!]
+  OR: [FriendSubscriptionWhereInput!]
+  NOT: [FriendSubscriptionWhereInput!]
+}
+
+input FriendUpdateInput {
+  me: UserUpdateOneRequiredWithoutFriendsInput
+  to: UserUpdateOneRequiredWithoutFriendstoInput
+  folow: Boolean
+  status: Int
+}
+
+input FriendUpdateManyDataInput {
+  folow: Boolean
+  status: Int
+}
+
+input FriendUpdateManyMutationInput {
+  folow: Boolean
+  status: Int
+}
+
+input FriendUpdateManyWithoutMeInput {
+  create: [FriendCreateWithoutMeInput!]
+  delete: [FriendWhereUniqueInput!]
+  connect: [FriendWhereUniqueInput!]
+  set: [FriendWhereUniqueInput!]
+  disconnect: [FriendWhereUniqueInput!]
+  update: [FriendUpdateWithWhereUniqueWithoutMeInput!]
+  upsert: [FriendUpsertWithWhereUniqueWithoutMeInput!]
+  deleteMany: [FriendScalarWhereInput!]
+  updateMany: [FriendUpdateManyWithWhereNestedInput!]
+}
+
+input FriendUpdateManyWithoutToInput {
+  create: [FriendCreateWithoutToInput!]
+  delete: [FriendWhereUniqueInput!]
+  connect: [FriendWhereUniqueInput!]
+  set: [FriendWhereUniqueInput!]
+  disconnect: [FriendWhereUniqueInput!]
+  update: [FriendUpdateWithWhereUniqueWithoutToInput!]
+  upsert: [FriendUpsertWithWhereUniqueWithoutToInput!]
+  deleteMany: [FriendScalarWhereInput!]
+  updateMany: [FriendUpdateManyWithWhereNestedInput!]
+}
+
+input FriendUpdateManyWithWhereNestedInput {
+  where: FriendScalarWhereInput!
+  data: FriendUpdateManyDataInput!
+}
+
+input FriendUpdateWithoutMeDataInput {
+  to: UserUpdateOneRequiredWithoutFriendstoInput
+  folow: Boolean
+  status: Int
+}
+
+input FriendUpdateWithoutToDataInput {
+  me: UserUpdateOneRequiredWithoutFriendsInput
+  folow: Boolean
+  status: Int
+}
+
+input FriendUpdateWithWhereUniqueWithoutMeInput {
+  where: FriendWhereUniqueInput!
+  data: FriendUpdateWithoutMeDataInput!
+}
+
+input FriendUpdateWithWhereUniqueWithoutToInput {
+  where: FriendWhereUniqueInput!
+  data: FriendUpdateWithoutToDataInput!
+}
+
+input FriendUpsertWithWhereUniqueWithoutMeInput {
+  where: FriendWhereUniqueInput!
+  update: FriendUpdateWithoutMeDataInput!
+  create: FriendCreateWithoutMeInput!
+}
+
+input FriendUpsertWithWhereUniqueWithoutToInput {
+  where: FriendWhereUniqueInput!
+  update: FriendUpdateWithoutToDataInput!
+  create: FriendCreateWithoutToInput!
+}
+
+input FriendWhereInput {
+  me: UserWhereInput
+  to: UserWhereInput
+  folow: Boolean
+  folow_not: Boolean
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [FriendWhereInput!]
+  OR: [FriendWhereInput!]
+  NOT: [FriendWhereInput!]
+}
+
+input FriendWhereUniqueInput {
+ to: ID!
+  from: ID!
+}
+
+type Group {
+  id: ID!
+  name: String!
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  menbers(where: MenberWhereInput, orderBy: MenberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Menber!]
+  notifications(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Notification!]
+  exercises(where: ExerciseWhereInput, orderBy: ExerciseOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Exercise!]
+  tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task!]
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type GroupConnection {
+  pageInfo: PageInfo!
+  edges: [GroupEdge]!
+  aggregate: AggregateGroup!
+}
+
+input GroupCreateInput {
+  name: String!
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  menbers: MenberCreateManyWithoutGroupInput
+  notifications: NotificationCreateManyWithoutGroupInput
+  exercises: ExerciseCreateManyWithoutGroupInput
+  tasks: TaskCreateManyWithoutGroupInput
+}
+
+input GroupCreateOneWithoutExercisesInput {
+  create: GroupCreateWithoutExercisesInput
+  connect: GroupWhereUniqueInput
+}
+
+input GroupCreateOneWithoutMenbersInput {
+  create: GroupCreateWithoutMenbersInput
+  connect: GroupWhereUniqueInput
+}
+
+input GroupCreateOneWithoutNotificationsInput {
+  create: GroupCreateWithoutNotificationsInput
+  connect: GroupWhereUniqueInput
+}
+
+input GroupCreateOneWithoutTasksInput {
+  create: GroupCreateWithoutTasksInput
+  connect: GroupWhereUniqueInput
+}
+
+input GroupCreateWithoutExercisesInput {
+  name: String!
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  menbers: MenberCreateManyWithoutGroupInput
+  notifications: NotificationCreateManyWithoutGroupInput
+  tasks: TaskCreateManyWithoutGroupInput
+}
+
+input GroupCreateWithoutMenbersInput {
+  name: String!
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  notifications: NotificationCreateManyWithoutGroupInput
+  exercises: ExerciseCreateManyWithoutGroupInput
+  tasks: TaskCreateManyWithoutGroupInput
+}
+
+input GroupCreateWithoutNotificationsInput {
+  name: String!
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  menbers: MenberCreateManyWithoutGroupInput
+  exercises: ExerciseCreateManyWithoutGroupInput
+  tasks: TaskCreateManyWithoutGroupInput
+}
+
+input GroupCreateWithoutTasksInput {
+  name: String!
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  menbers: MenberCreateManyWithoutGroupInput
+  notifications: NotificationCreateManyWithoutGroupInput
+  exercises: ExerciseCreateManyWithoutGroupInput
+}
+
+type GroupEdge {
+  node: Group!
+  cursor: String!
+}
+
+enum GroupOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  cover_ASC
+  cover_DESC
+  description_ASC
+  description_DESC
+  email_ASC
+  email_DESC
+  icon_ASC
+  icon_DESC
+  privacy_ASC
+  privacy_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type GroupPreviousValues {
+  id: ID!
+  name: String!
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type GroupSubscriptionPayload {
+  mutation: MutationType!
+  node: Group
+  updatedFields: [String!]
+  previousValues: GroupPreviousValues
+}
+
+input GroupSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: GroupWhereInput
+  AND: [GroupSubscriptionWhereInput!]
+  OR: [GroupSubscriptionWhereInput!]
+  NOT: [GroupSubscriptionWhereInput!]
+}
+
+input GroupUpdateInput {
+  name: String
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  menbers: MenberUpdateManyWithoutGroupInput
+  notifications: NotificationUpdateManyWithoutGroupInput
+  exercises: ExerciseUpdateManyWithoutGroupInput
+  tasks: TaskUpdateManyWithoutGroupInput
+}
+
+input GroupUpdateManyMutationInput {
+  name: String
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+}
+
+input GroupUpdateOneRequiredWithoutExercisesInput {
+  create: GroupCreateWithoutExercisesInput
+  update: GroupUpdateWithoutExercisesDataInput
+  upsert: GroupUpsertWithoutExercisesInput
+  connect: GroupWhereUniqueInput
+}
+
+input GroupUpdateOneRequiredWithoutMenbersInput {
+  create: GroupCreateWithoutMenbersInput
+  update: GroupUpdateWithoutMenbersDataInput
+  upsert: GroupUpsertWithoutMenbersInput
+  connect: GroupWhereUniqueInput
+}
+
+input GroupUpdateOneRequiredWithoutNotificationsInput {
+  create: GroupCreateWithoutNotificationsInput
+  update: GroupUpdateWithoutNotificationsDataInput
+  upsert: GroupUpsertWithoutNotificationsInput
+  connect: GroupWhereUniqueInput
+}
+
+input GroupUpdateOneRequiredWithoutTasksInput {
+  create: GroupCreateWithoutTasksInput
+  update: GroupUpdateWithoutTasksDataInput
+  upsert: GroupUpsertWithoutTasksInput
+  connect: GroupWhereUniqueInput
+}
+
+input GroupUpdateWithoutExercisesDataInput {
+  name: String
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  menbers: MenberUpdateManyWithoutGroupInput
+  notifications: NotificationUpdateManyWithoutGroupInput
+  tasks: TaskUpdateManyWithoutGroupInput
+}
+
+input GroupUpdateWithoutMenbersDataInput {
+  name: String
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  notifications: NotificationUpdateManyWithoutGroupInput
+  exercises: ExerciseUpdateManyWithoutGroupInput
+  tasks: TaskUpdateManyWithoutGroupInput
+}
+
+input GroupUpdateWithoutNotificationsDataInput {
+  name: String
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  menbers: MenberUpdateManyWithoutGroupInput
+  exercises: ExerciseUpdateManyWithoutGroupInput
+  tasks: TaskUpdateManyWithoutGroupInput
+}
+
+input GroupUpdateWithoutTasksDataInput {
+  name: String
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  menbers: MenberUpdateManyWithoutGroupInput
+  notifications: NotificationUpdateManyWithoutGroupInput
+  exercises: ExerciseUpdateManyWithoutGroupInput
+}
+
+input GroupUpsertWithoutExercisesInput {
+  update: GroupUpdateWithoutExercisesDataInput!
+  create: GroupCreateWithoutExercisesInput!
+}
+
+input GroupUpsertWithoutMenbersInput {
+  update: GroupUpdateWithoutMenbersDataInput!
+  create: GroupCreateWithoutMenbersInput!
+}
+
+input GroupUpsertWithoutNotificationsInput {
+  update: GroupUpdateWithoutNotificationsDataInput!
+  create: GroupCreateWithoutNotificationsInput!
+}
+
+input GroupUpsertWithoutTasksInput {
+  update: GroupUpdateWithoutTasksDataInput!
+  create: GroupCreateWithoutTasksInput!
+}
+
+input GroupWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  cover: String
+  cover_not: String
+  cover_in: [String!]
+  cover_not_in: [String!]
+  cover_lt: String
+  cover_lte: String
+  cover_gt: String
+  cover_gte: String
+  cover_contains: String
+  cover_not_contains: String
+  cover_starts_with: String
+  cover_not_starts_with: String
+  cover_ends_with: String
+  cover_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  icon: String
+  icon_not: String
+  icon_in: [String!]
+  icon_not_in: [String!]
+  icon_lt: String
+  icon_lte: String
+  icon_gt: String
+  icon_gte: String
+  icon_contains: String
+  icon_not_contains: String
+  icon_starts_with: String
+  icon_not_starts_with: String
+  icon_ends_with: String
+  icon_not_ends_with: String
+  privacy: Int
+  privacy_not: Int
+  privacy_in: [Int!]
+  privacy_not_in: [Int!]
+  privacy_lt: Int
+  privacy_lte: Int
+  privacy_gt: Int
+  privacy_gte: Int
+  menbers_every: MenberWhereInput
+  menbers_some: MenberWhereInput
+  menbers_none: MenberWhereInput
+  notifications_every: NotificationWhereInput
+  notifications_some: NotificationWhereInput
+  notifications_none: NotificationWhereInput
+  exercises_every: ExerciseWhereInput
+  exercises_some: ExerciseWhereInput
+  exercises_none: ExerciseWhereInput
+  tasks_every: TaskWhereInput
+  tasks_some: TaskWhereInput
+  tasks_none: TaskWhereInput
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [GroupWhereInput!]
+  OR: [GroupWhereInput!]
+  NOT: [GroupWhereInput!]
+}
+
+input GroupWhereUniqueInput {
+  id: ID
+}
+
+scalar Long
+
+type Menber {
+  user: User!
+  group: Group!
+  admin_only: Boolean
+  status: Int
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type MenberConnection {
+  pageInfo: PageInfo!
+  edges: [MenberEdge]!
+  aggregate: AggregateMenber!
+}
+
+input MenberCreateInput {
+  user: UserCreateOneWithoutMenbersInput!
+  group: GroupCreateOneWithoutMenbersInput!
+  admin_only: Boolean
+  status: Int
+}
+
+input MenberCreateManyWithoutGroupInput {
+  create: [MenberCreateWithoutGroupInput!]
+  connect: [MenberWhereUniqueInput!]
+}
+
+input MenberCreateManyWithoutUserInput {
+  create: [MenberCreateWithoutUserInput!]
+  connect: [MenberWhereUniqueInput!]
+}
+
+input MenberCreateWithoutGroupInput {
+  user: UserCreateOneWithoutMenbersInput!
+  admin_only: Boolean
+  status: Int
+}
+
+input MenberCreateWithoutUserInput {
+  group: GroupCreateOneWithoutMenbersInput!
+  admin_only: Boolean
+  status: Int
+}
+
+type MenberEdge {
+  node: Menber!
+  cursor: String!
+}
+
+enum MenberOrderByInput {
+  admin_only_ASC
+  admin_only_DESC
+  status_ASC
+  status_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+}
+
+type MenberPreviousValues {
+  admin_only: Boolean
+  status: Int
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+input MenberScalarWhereInput {
+  admin_only: Boolean
+  admin_only_not: Boolean
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [MenberScalarWhereInput!]
+  OR: [MenberScalarWhereInput!]
+  NOT: [MenberScalarWhereInput!]
+}
+
+type MenberSubscriptionPayload {
+  mutation: MutationType!
+  node: Menber
+  updatedFields: [String!]
+  previousValues: MenberPreviousValues
+}
+
+input MenberSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: MenberWhereInput
+  AND: [MenberSubscriptionWhereInput!]
+  OR: [MenberSubscriptionWhereInput!]
+  NOT: [MenberSubscriptionWhereInput!]
+}
+
+input MenberUpdateInput {
+  user: UserUpdateOneRequiredWithoutMenbersInput
+  group: GroupUpdateOneRequiredWithoutMenbersInput
+  admin_only: Boolean
+  status: Int
+}
+
+input MenberUpdateManyDataInput {
+  admin_only: Boolean
+  status: Int
+}
+
+input MenberUpdateManyMutationInput {
+  admin_only: Boolean
+  status: Int
+}
+
+input MenberUpdateManyWithoutGroupInput {
+  create: [MenberCreateWithoutGroupInput!]
+  delete: [MenberWhereUniqueInput!]
+  connect: [MenberWhereUniqueInput!]
+  set: [MenberWhereUniqueInput!]
+  disconnect: [MenberWhereUniqueInput!]
+  update: [MenberUpdateWithWhereUniqueWithoutGroupInput!]
+  upsert: [MenberUpsertWithWhereUniqueWithoutGroupInput!]
+  deleteMany: [MenberScalarWhereInput!]
+  updateMany: [MenberUpdateManyWithWhereNestedInput!]
+}
+
+input MenberUpdateManyWithoutUserInput {
+  create: [MenberCreateWithoutUserInput!]
+  delete: [MenberWhereUniqueInput!]
+  connect: [MenberWhereUniqueInput!]
+  set: [MenberWhereUniqueInput!]
+  disconnect: [MenberWhereUniqueInput!]
+  update: [MenberUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [MenberUpsertWithWhereUniqueWithoutUserInput!]
+  deleteMany: [MenberScalarWhereInput!]
+  updateMany: [MenberUpdateManyWithWhereNestedInput!]
+}
+
+input MenberUpdateManyWithWhereNestedInput {
+  where: MenberScalarWhereInput!
+  data: MenberUpdateManyDataInput!
+}
+
+input MenberUpdateWithoutGroupDataInput {
+  user: UserUpdateOneRequiredWithoutMenbersInput
+  admin_only: Boolean
+  status: Int
+}
+
+input MenberUpdateWithoutUserDataInput {
+  group: GroupUpdateOneRequiredWithoutMenbersInput
+  admin_only: Boolean
+  status: Int
+}
+
+input MenberUpdateWithWhereUniqueWithoutGroupInput {
+  where: MenberWhereUniqueInput!
+  data: MenberUpdateWithoutGroupDataInput!
+}
+
+input MenberUpdateWithWhereUniqueWithoutUserInput {
+  where: MenberWhereUniqueInput!
+  data: MenberUpdateWithoutUserDataInput!
+}
+
+input MenberUpsertWithWhereUniqueWithoutGroupInput {
+  where: MenberWhereUniqueInput!
+  update: MenberUpdateWithoutGroupDataInput!
+  create: MenberCreateWithoutGroupInput!
+}
+
+input MenberUpsertWithWhereUniqueWithoutUserInput {
+  where: MenberWhereUniqueInput!
+  update: MenberUpdateWithoutUserDataInput!
+  create: MenberCreateWithoutUserInput!
+}
+
+input MenberWhereInput {
+  user: UserWhereInput
+  group: GroupWhereInput
+  admin_only: Boolean
+  admin_only_not: Boolean
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [MenberWhereInput!]
+  OR: [MenberWhereInput!]
+  NOT: [MenberWhereInput!]
+}
+
+input MenberWhereUniqueInput {
+  id_user: ID!
+  id_group: ID!
+}
+
+type Mutation {
+  createComment(data: CommentCreateInput!): Comment!
+  updateComment(data: CommentUpdateInput!, where: CommentWhereUniqueInput!): Comment
+  updateManyComments(data: CommentUpdateManyMutationInput!, where: CommentWhereInput): BatchPayload!
+  upsertComment(where: CommentWhereUniqueInput!, create: CommentCreateInput!, update: CommentUpdateInput!): Comment!
+  deleteComment(where: CommentWhereUniqueInput!): Comment
+  deleteManyComments(where: CommentWhereInput): BatchPayload!
+  createExercise(data: ExerciseCreateInput!): Exercise!
+  updateExercise(data: ExerciseUpdateInput!, where: ExerciseWhereUniqueInput!): Exercise
+  updateManyExercises(data: ExerciseUpdateManyMutationInput!, where: ExerciseWhereInput): BatchPayload!
+  upsertExercise(where: ExerciseWhereUniqueInput!, create: ExerciseCreateInput!, update: ExerciseUpdateInput!): Exercise!
+  deleteExercise(where: ExerciseWhereUniqueInput!): Exercise
+  deleteManyExercises(where: ExerciseWhereInput): BatchPayload!
+  createFolowPage(data: FolowPageCreateInput!): FolowPage!
+  updateFolowPage(data: FolowPageUpdateInput!, where: FolowPageWhereUniqueInput!): FolowPage
+  updateManyFolowPages(data: FolowPageUpdateManyMutationInput!, where: FolowPageWhereInput): BatchPayload!
+  upsertFolowPage(where: FolowPageWhereUniqueInput!, create: FolowPageCreateInput!, update: FolowPageUpdateInput!): FolowPage!
+  deleteFolowPage(where: FolowPageWhereUniqueInput!): FolowPage
+  deleteManyFolowPages(where: FolowPageWhereInput): BatchPayload!
+  createFriend(data: FriendCreateInput!): Friend!
+  updateFriend(data: FriendUpdateInput!, where: FriendWhereUniqueInput!): Friend
+  updateManyFriends(data: FriendUpdateManyMutationInput!, where: FriendWhereInput): BatchPayload!
+  upsertFriend(where: FriendWhereUniqueInput!, create: FriendCreateInput!, update: FriendUpdateInput!): Friend!
+  deleteFriend(where: FriendWhereUniqueInput!): Friend
+  deleteManyFriends(where: FriendWhereInput): BatchPayload!
+  createGroup(data: GroupCreateInput!): Group!
+  updateGroup(data: GroupUpdateInput!, where: GroupWhereUniqueInput!): Group
+  updateManyGroups(data: GroupUpdateManyMutationInput!, where: GroupWhereInput): BatchPayload!
+  upsertGroup(where: GroupWhereUniqueInput!, create: GroupCreateInput!, update: GroupUpdateInput!): Group!
+  deleteGroup(where: GroupWhereUniqueInput!): Group
+  deleteManyGroups(where: GroupWhereInput): BatchPayload!
+  createMenber(data: MenberCreateInput!): Menber!
+  updateMenber(data: MenberUpdateInput!, where: MenberWhereUniqueInput!): Menber
+  updateManyMenbers(data: MenberUpdateManyMutationInput!, where: MenberWhereInput): BatchPayload!
+  upsertMenber(where: MenberWhereUniqueInput!, create: MenberCreateInput!, update: MenberUpdateInput!): Menber!
+  deleteMenber(where: MenberWhereUniqueInput!): Menber
+  deleteManyMenbers(where: MenberWhereInput): BatchPayload!
+  createNotification(data: NotificationCreateInput!): Notification!
+  updateNotification(data: NotificationUpdateInput!, where: NotificationWhereUniqueInput!): Notification
+  updateManyNotifications(data: NotificationUpdateManyMutationInput!, where: NotificationWhereInput): BatchPayload!
+  upsertNotification(where: NotificationWhereUniqueInput!, create: NotificationCreateInput!, update: NotificationUpdateInput!): Notification!
+  deleteNotification(where: NotificationWhereUniqueInput!): Notification
+  deleteManyNotifications(where: NotificationWhereInput): BatchPayload!
+  createPage(data: PageCreateInput!): Page!
+  updatePage(data: PageUpdateInput!, where: PageWhereUniqueInput!): Page
+  updateManyPages(data: PageUpdateManyMutationInput!, where: PageWhereInput): BatchPayload!
+  upsertPage(where: PageWhereUniqueInput!, create: PageCreateInput!, update: PageUpdateInput!): Page!
+  deletePage(where: PageWhereUniqueInput!): Page
+  deleteManyPages(where: PageWhereInput): BatchPayload!
+  createPost(data: PostCreateInput!): Post!
+  updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
+  updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
+  upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
+  deletePost(where: PostWhereUniqueInput!): Post
+  deleteManyPosts(where: PostWhereInput): BatchPayload!
+  createQuestion(data: QuestionCreateInput!): Question!
+  updateQuestion(data: QuestionUpdateInput!, where: QuestionWhereUniqueInput!): Question
+  updateManyQuestions(data: QuestionUpdateManyMutationInput!, where: QuestionWhereInput): BatchPayload!
+  upsertQuestion(where: QuestionWhereUniqueInput!, create: QuestionCreateInput!, update: QuestionUpdateInput!): Question!
+  deleteQuestion(where: QuestionWhereUniqueInput!): Question
+  deleteManyQuestions(where: QuestionWhereInput): BatchPayload!
+  createQuestionGroup(data: QuestionGroupCreateInput!): QuestionGroup!
+  updateQuestionGroup(data: QuestionGroupUpdateInput!, where: QuestionGroupWhereUniqueInput!): QuestionGroup
+  updateManyQuestionGroups(data: QuestionGroupUpdateManyMutationInput!, where: QuestionGroupWhereInput): BatchPayload!
+  upsertQuestionGroup(where: QuestionGroupWhereUniqueInput!, create: QuestionGroupCreateInput!, update: QuestionGroupUpdateInput!): QuestionGroup!
+  deleteQuestionGroup(where: QuestionGroupWhereUniqueInput!): QuestionGroup
+  deleteManyQuestionGroups(where: QuestionGroupWhereInput): BatchPayload!
+  createTask(data: TaskCreateInput!): Task!
+  updateTask(data: TaskUpdateInput!, where: TaskWhereUniqueInput!): Task
+  updateManyTasks(data: TaskUpdateManyMutationInput!, where: TaskWhereInput): BatchPayload!
+  upsertTask(where: TaskWhereUniqueInput!, create: TaskCreateInput!, update: TaskUpdateInput!): Task!
+  deleteTask(where: TaskWhereUniqueInput!): Task
+  deleteManyTasks(where: TaskWhereInput): BatchPayload!
+  createTopic(data: TopicCreateInput!): Topic!
+  updateTopic(data: TopicUpdateInput!, where: TopicWhereUniqueInput!): Topic
+  updateManyTopics(data: TopicUpdateManyMutationInput!, where: TopicWhereInput): BatchPayload!
+  upsertTopic(where: TopicWhereUniqueInput!, create: TopicCreateInput!, update: TopicUpdateInput!): Topic!
+  deleteTopic(where: TopicWhereUniqueInput!): Topic
+  deleteManyTopics(where: TopicWhereInput): BatchPayload!
+  createTopicGroup(data: TopicGroupCreateInput!): TopicGroup!
+  updateTopicGroup(data: TopicGroupUpdateInput!, where: TopicGroupWhereUniqueInput!): TopicGroup
+  updateManyTopicGroups(data: TopicGroupUpdateManyMutationInput!, where: TopicGroupWhereInput): BatchPayload!
+  upsertTopicGroup(where: TopicGroupWhereUniqueInput!, create: TopicGroupCreateInput!, update: TopicGroupUpdateInput!): TopicGroup!
+  deleteTopicGroup(where: TopicGroupWhereUniqueInput!): TopicGroup
+  deleteManyTopicGroups(where: TopicGroupWhereInput): BatchPayload!
+  createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+interface Node {
+  id: ID!
+}
+
+type Notification {
+  id: ID!
+  group: Group!
+  title: String!
+  body: String!
+  Time: DateTime
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type NotificationConnection {
+  pageInfo: PageInfo!
+  edges: [NotificationEdge]!
+  aggregate: AggregateNotification!
+}
+
+input NotificationCreateInput {
+  group: GroupCreateOneWithoutNotificationsInput!
+  title: String!
+  body: String!
+  Time: DateTime
+}
+
+input NotificationCreateManyWithoutGroupInput {
+  create: [NotificationCreateWithoutGroupInput!]
+  connect: [NotificationWhereUniqueInput!]
+}
+
+input NotificationCreateWithoutGroupInput {
+  title: String!
+  body: String!
+  Time: DateTime
+}
+
+type NotificationEdge {
+  node: Notification!
+  cursor: String!
+}
+
+enum NotificationOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  body_ASC
+  body_DESC
+  Time_ASC
+  Time_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type NotificationPreviousValues {
+  id: ID!
+  title: String!
+  body: String!
+  Time: DateTime
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+input NotificationScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  body: String
+  body_not: String
+  body_in: [String!]
+  body_not_in: [String!]
+  body_lt: String
+  body_lte: String
+  body_gt: String
+  body_gte: String
+  body_contains: String
+  body_not_contains: String
+  body_starts_with: String
+  body_not_starts_with: String
+  body_ends_with: String
+  body_not_ends_with: String
+  Time: DateTime
+  Time_not: DateTime
+  Time_in: [DateTime!]
+  Time_not_in: [DateTime!]
+  Time_lt: DateTime
+  Time_lte: DateTime
+  Time_gt: DateTime
+  Time_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [NotificationScalarWhereInput!]
+  OR: [NotificationScalarWhereInput!]
+  NOT: [NotificationScalarWhereInput!]
+}
+
+type NotificationSubscriptionPayload {
+  mutation: MutationType!
+  node: Notification
+  updatedFields: [String!]
+  previousValues: NotificationPreviousValues
+}
+
+input NotificationSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: NotificationWhereInput
+  AND: [NotificationSubscriptionWhereInput!]
+  OR: [NotificationSubscriptionWhereInput!]
+  NOT: [NotificationSubscriptionWhereInput!]
+}
+
+input NotificationUpdateInput {
+  group: GroupUpdateOneRequiredWithoutNotificationsInput
+  title: String
+  body: String
+  Time: DateTime
+}
+
+input NotificationUpdateManyDataInput {
+  title: String
+  body: String
+  Time: DateTime
+}
+
+input NotificationUpdateManyMutationInput {
+  title: String
+  body: String
+  Time: DateTime
+}
+
+input NotificationUpdateManyWithoutGroupInput {
+  create: [NotificationCreateWithoutGroupInput!]
+  delete: [NotificationWhereUniqueInput!]
+  connect: [NotificationWhereUniqueInput!]
+  set: [NotificationWhereUniqueInput!]
+  disconnect: [NotificationWhereUniqueInput!]
+  update: [NotificationUpdateWithWhereUniqueWithoutGroupInput!]
+  upsert: [NotificationUpsertWithWhereUniqueWithoutGroupInput!]
+  deleteMany: [NotificationScalarWhereInput!]
+  updateMany: [NotificationUpdateManyWithWhereNestedInput!]
+}
+
+input NotificationUpdateManyWithWhereNestedInput {
+  where: NotificationScalarWhereInput!
+  data: NotificationUpdateManyDataInput!
+}
+
+input NotificationUpdateWithoutGroupDataInput {
+  title: String
+  body: String
+  Time: DateTime
+}
+
+input NotificationUpdateWithWhereUniqueWithoutGroupInput {
+  where: NotificationWhereUniqueInput!
+  data: NotificationUpdateWithoutGroupDataInput!
+}
+
+input NotificationUpsertWithWhereUniqueWithoutGroupInput {
+  where: NotificationWhereUniqueInput!
+  update: NotificationUpdateWithoutGroupDataInput!
+  create: NotificationCreateWithoutGroupInput!
+}
+
+input NotificationWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  group: GroupWhereInput
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  body: String
+  body_not: String
+  body_in: [String!]
+  body_not_in: [String!]
+  body_lt: String
+  body_lte: String
+  body_gt: String
+  body_gte: String
+  body_contains: String
+  body_not_contains: String
+  body_starts_with: String
+  body_not_starts_with: String
+  body_ends_with: String
+  body_not_ends_with: String
+  Time: DateTime
+  Time_not: DateTime
+  Time_in: [DateTime!]
+  Time_not_in: [DateTime!]
+  Time_lt: DateTime
+  Time_lte: DateTime
+  Time_gt: DateTime
+  Time_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [NotificationWhereInput!]
+  OR: [NotificationWhereInput!]
+  NOT: [NotificationWhereInput!]
+}
+
+input NotificationWhereUniqueInput {
+  id: ID
+}
+
+type Page {
+  id: ID!
+  about: String
+  name: String!
+  phone: String
+  email: String
+  questionGroups(where: QuestionGroupWhereInput, orderBy: QuestionGroupOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [QuestionGroup!]
+  topicGroups(where: TopicGroupWhereInput, orderBy: TopicGroupOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TopicGroup!]
+  folows(where: FolowPageWhereInput, orderBy: FolowPageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FolowPage!]
+  can_post: Boolean
+  pagetype: String
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type PageConnection {
+  pageInfo: PageInfo!
+  edges: [PageEdge]!
+  aggregate: AggregatePage!
+}
+
+input PageCreateInput {
+  about: String
+  name: String!
+  phone: String
+  email: String
+  questionGroups: QuestionGroupCreateManyWithoutPageInput
+  topicGroups: TopicGroupCreateManyWithoutPageInput
+  folows: FolowPageCreateManyWithoutPageInput
+  can_post: Boolean
+  pagetype: String
+}
+
+input PageCreateOneWithoutFolowsInput {
+  create: PageCreateWithoutFolowsInput
+  connect: PageWhereUniqueInput
+}
+
+input PageCreateOneWithoutQuestionGroupsInput {
+  create: PageCreateWithoutQuestionGroupsInput
+  connect: PageWhereUniqueInput
+}
+
+input PageCreateOneWithoutTopicGroupsInput {
+  create: PageCreateWithoutTopicGroupsInput
+  connect: PageWhereUniqueInput
+}
+
+input PageCreateWithoutFolowsInput {
+  about: String
+  name: String!
+  phone: String
+  email: String
+  questionGroups: QuestionGroupCreateManyWithoutPageInput
+  topicGroups: TopicGroupCreateManyWithoutPageInput
+  can_post: Boolean
+  pagetype: String
+}
+
+input PageCreateWithoutQuestionGroupsInput {
+  about: String
+  name: String!
+  phone: String
+  email: String
+  topicGroups: TopicGroupCreateManyWithoutPageInput
+  folows: FolowPageCreateManyWithoutPageInput
+  can_post: Boolean
+  pagetype: String
+}
+
+input PageCreateWithoutTopicGroupsInput {
+  about: String
+  name: String!
+  phone: String
+  email: String
+  questionGroups: QuestionGroupCreateManyWithoutPageInput
+  folows: FolowPageCreateManyWithoutPageInput
+  can_post: Boolean
+  pagetype: String
+}
+
+type PageEdge {
+  node: Page!
+  cursor: String!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+enum PageOrderByInput {
+  id_ASC
+  id_DESC
+  about_ASC
+  about_DESC
+  name_ASC
+  name_DESC
+  phone_ASC
+  phone_DESC
+  email_ASC
+  email_DESC
+  can_post_ASC
+  can_post_DESC
+  pagetype_ASC
+  pagetype_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type PagePreviousValues {
+  id: ID!
+  about: String
+  name: String!
+  phone: String
+  email: String
+  can_post: Boolean
+  pagetype: String
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type PageSubscriptionPayload {
+  mutation: MutationType!
+  node: Page
+  updatedFields: [String!]
+  previousValues: PagePreviousValues
+}
+
+input PageSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PageWhereInput
+  AND: [PageSubscriptionWhereInput!]
+  OR: [PageSubscriptionWhereInput!]
+  NOT: [PageSubscriptionWhereInput!]
+}
+
+input PageUpdateInput {
+  about: String
+  name: String
+  phone: String
+  email: String
+  questionGroups: QuestionGroupUpdateManyWithoutPageInput
+  topicGroups: TopicGroupUpdateManyWithoutPageInput
+  folows: FolowPageUpdateManyWithoutPageInput
+  can_post: Boolean
+  pagetype: String
+}
+
+input PageUpdateManyMutationInput {
+  about: String
+  name: String
+  phone: String
+  email: String
+  can_post: Boolean
+  pagetype: String
+}
+
+input PageUpdateOneRequiredWithoutFolowsInput {
+  create: PageCreateWithoutFolowsInput
+  update: PageUpdateWithoutFolowsDataInput
+  upsert: PageUpsertWithoutFolowsInput
+  connect: PageWhereUniqueInput
+}
+
+input PageUpdateOneRequiredWithoutQuestionGroupsInput {
+  create: PageCreateWithoutQuestionGroupsInput
+  update: PageUpdateWithoutQuestionGroupsDataInput
+  upsert: PageUpsertWithoutQuestionGroupsInput
+  connect: PageWhereUniqueInput
+}
+
+input PageUpdateOneRequiredWithoutTopicGroupsInput {
+  create: PageCreateWithoutTopicGroupsInput
+  update: PageUpdateWithoutTopicGroupsDataInput
+  upsert: PageUpsertWithoutTopicGroupsInput
+  connect: PageWhereUniqueInput
+}
+
+input PageUpdateWithoutFolowsDataInput {
+  about: String
+  name: String
+  phone: String
+  email: String
+  questionGroups: QuestionGroupUpdateManyWithoutPageInput
+  topicGroups: TopicGroupUpdateManyWithoutPageInput
+  can_post: Boolean
+  pagetype: String
+}
+
+input PageUpdateWithoutQuestionGroupsDataInput {
+  about: String
+  name: String
+  phone: String
+  email: String
+  topicGroups: TopicGroupUpdateManyWithoutPageInput
+  folows: FolowPageUpdateManyWithoutPageInput
+  can_post: Boolean
+  pagetype: String
+}
+
+input PageUpdateWithoutTopicGroupsDataInput {
+  about: String
+  name: String
+  phone: String
+  email: String
+  questionGroups: QuestionGroupUpdateManyWithoutPageInput
+  folows: FolowPageUpdateManyWithoutPageInput
+  can_post: Boolean
+  pagetype: String
+}
+
+input PageUpsertWithoutFolowsInput {
+  update: PageUpdateWithoutFolowsDataInput!
+  create: PageCreateWithoutFolowsInput!
+}
+
+input PageUpsertWithoutQuestionGroupsInput {
+  update: PageUpdateWithoutQuestionGroupsDataInput!
+  create: PageCreateWithoutQuestionGroupsInput!
+}
+
+input PageUpsertWithoutTopicGroupsInput {
+  update: PageUpdateWithoutTopicGroupsDataInput!
+  create: PageCreateWithoutTopicGroupsInput!
+}
+
+input PageWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  about: String
+  about_not: String
+  about_in: [String!]
+  about_not_in: [String!]
+  about_lt: String
+  about_lte: String
+  about_gt: String
+  about_gte: String
+  about_contains: String
+  about_not_contains: String
+  about_starts_with: String
+  about_not_starts_with: String
+  about_ends_with: String
+  about_not_ends_with: String
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  phone: String
+  phone_not: String
+  phone_in: [String!]
+  phone_not_in: [String!]
+  phone_lt: String
+  phone_lte: String
+  phone_gt: String
+  phone_gte: String
+  phone_contains: String
+  phone_not_contains: String
+  phone_starts_with: String
+  phone_not_starts_with: String
+  phone_ends_with: String
+  phone_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  questionGroups_every: QuestionGroupWhereInput
+  questionGroups_some: QuestionGroupWhereInput
+  questionGroups_none: QuestionGroupWhereInput
+  topicGroups_every: TopicGroupWhereInput
+  topicGroups_some: TopicGroupWhereInput
+  topicGroups_none: TopicGroupWhereInput
+  folows_every: FolowPageWhereInput
+  folows_some: FolowPageWhereInput
+  folows_none: FolowPageWhereInput
+  can_post: Boolean
+  can_post_not: Boolean
+  pagetype: String
+  pagetype_not: String
+  pagetype_in: [String!]
+  pagetype_not_in: [String!]
+  pagetype_lt: String
+  pagetype_lte: String
+  pagetype_gt: String
+  pagetype_gte: String
+  pagetype_contains: String
+  pagetype_not_contains: String
+  pagetype_starts_with: String
+  pagetype_not_starts_with: String
+  pagetype_ends_with: String
+  pagetype_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [PageWhereInput!]
+  OR: [PageWhereInput!]
+  NOT: [PageWhereInput!]
+}
+
+input PageWhereUniqueInput {
+  id: ID
+}
+
+type Post {
+  id: ID!
+  title: String!
+  message: String!
+  is_published: Boolean!
+  link: String
+  parent_id: String
+  privacy: String
+  status_type: Int!
+  author: User!
+  comments(where: CommentWhereInput, orderBy: CommentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Comment!]
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type PostConnection {
+  pageInfo: PageInfo!
+  edges: [PostEdge]!
+  aggregate: AggregatePost!
+}
+
+input PostCreateInput {
+  title: String!
+  message: String!
+  is_published: Boolean!
+  link: String
+  parent_id: String
+  privacy: String
+  status_type: Int!
+  author: UserCreateOneWithoutPostsInput!
+  comments: CommentCreateManyWithoutPostInput
+}
+
+input PostCreateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
+  connect: [PostWhereUniqueInput!]
+}
+
+input PostCreateOneWithoutCommentsInput {
+  create: PostCreateWithoutCommentsInput
+  connect: PostWhereUniqueInput
+}
+
+input PostCreateWithoutAuthorInput {
+  title: String!
+  message: String!
+  is_published: Boolean!
+  link: String
+  parent_id: String
+  privacy: String
+  status_type: Int!
+  comments: CommentCreateManyWithoutPostInput
+}
+
+input PostCreateWithoutCommentsInput {
+  title: String!
+  message: String!
+  is_published: Boolean!
+  link: String
+  parent_id: String
+  privacy: String
+  status_type: Int!
+  author: UserCreateOneWithoutPostsInput!
+}
+
+type PostEdge {
+  node: Post!
+  cursor: String!
+}
+
+enum PostOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  message_ASC
+  message_DESC
+  is_published_ASC
+  is_published_DESC
+  link_ASC
+  link_DESC
+  parent_id_ASC
+  parent_id_DESC
+  privacy_ASC
+  privacy_DESC
+  status_type_ASC
+  status_type_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type PostPreviousValues {
+  id: ID!
+  title: String!
+  message: String!
+  is_published: Boolean!
+  link: String
+  parent_id: String
+  privacy: String
+  status_type: Int!
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+input PostScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  message: String
+  message_not: String
+  message_in: [String!]
+  message_not_in: [String!]
+  message_lt: String
+  message_lte: String
+  message_gt: String
+  message_gte: String
+  message_contains: String
+  message_not_contains: String
+  message_starts_with: String
+  message_not_starts_with: String
+  message_ends_with: String
+  message_not_ends_with: String
+  is_published: Boolean
+  is_published_not: Boolean
+  link: String
+  link_not: String
+  link_in: [String!]
+  link_not_in: [String!]
+  link_lt: String
+  link_lte: String
+  link_gt: String
+  link_gte: String
+  link_contains: String
+  link_not_contains: String
+  link_starts_with: String
+  link_not_starts_with: String
+  link_ends_with: String
+  link_not_ends_with: String
+  parent_id: String
+  parent_id_not: String
+  parent_id_in: [String!]
+  parent_id_not_in: [String!]
+  parent_id_lt: String
+  parent_id_lte: String
+  parent_id_gt: String
+  parent_id_gte: String
+  parent_id_contains: String
+  parent_id_not_contains: String
+  parent_id_starts_with: String
+  parent_id_not_starts_with: String
+  parent_id_ends_with: String
+  parent_id_not_ends_with: String
+  privacy: String
+  privacy_not: String
+  privacy_in: [String!]
+  privacy_not_in: [String!]
+  privacy_lt: String
+  privacy_lte: String
+  privacy_gt: String
+  privacy_gte: String
+  privacy_contains: String
+  privacy_not_contains: String
+  privacy_starts_with: String
+  privacy_not_starts_with: String
+  privacy_ends_with: String
+  privacy_not_ends_with: String
+  status_type: Int
+  status_type_not: Int
+  status_type_in: [Int!]
+  status_type_not_in: [Int!]
+  status_type_lt: Int
+  status_type_lte: Int
+  status_type_gt: Int
+  status_type_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [PostScalarWhereInput!]
+  OR: [PostScalarWhereInput!]
+  NOT: [PostScalarWhereInput!]
+}
+
+type PostSubscriptionPayload {
+  mutation: MutationType!
+  node: Post
+  updatedFields: [String!]
+  previousValues: PostPreviousValues
+}
+
+input PostSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PostWhereInput
+  AND: [PostSubscriptionWhereInput!]
+  OR: [PostSubscriptionWhereInput!]
+  NOT: [PostSubscriptionWhereInput!]
+}
+
+input PostUpdateInput {
+  title: String
+  message: String
+  is_published: Boolean
+  link: String
+  parent_id: String
+  privacy: String
+  status_type: Int
+  author: UserUpdateOneRequiredWithoutPostsInput
+  comments: CommentUpdateManyWithoutPostInput
+}
+
+input PostUpdateManyDataInput {
+  title: String
+  message: String
+  is_published: Boolean
+  link: String
+  parent_id: String
+  privacy: String
+  status_type: Int
+}
+
+input PostUpdateManyMutationInput {
+  title: String
+  message: String
+  is_published: Boolean
+  link: String
+  parent_id: String
+  privacy: String
+  status_type: Int
+}
+
+input PostUpdateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
+  delete: [PostWhereUniqueInput!]
+  connect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  disconnect: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
+  deleteMany: [PostScalarWhereInput!]
+  updateMany: [PostUpdateManyWithWhereNestedInput!]
+}
+
+input PostUpdateManyWithWhereNestedInput {
+  where: PostScalarWhereInput!
+  data: PostUpdateManyDataInput!
+}
+
+input PostUpdateOneRequiredWithoutCommentsInput {
+  create: PostCreateWithoutCommentsInput
+  update: PostUpdateWithoutCommentsDataInput
+  upsert: PostUpsertWithoutCommentsInput
+  connect: PostWhereUniqueInput
+}
+
+input PostUpdateWithoutAuthorDataInput {
+  title: String
+  message: String
+  is_published: Boolean
+  link: String
+  parent_id: String
+  privacy: String
+  status_type: Int
+  comments: CommentUpdateManyWithoutPostInput
+}
+
+input PostUpdateWithoutCommentsDataInput {
+  title: String
+  message: String
+  is_published: Boolean
+  link: String
+  parent_id: String
+  privacy: String
+  status_type: Int
+  author: UserUpdateOneRequiredWithoutPostsInput
+}
+
+input PostUpdateWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateWithoutAuthorDataInput!
+}
+
+input PostUpsertWithoutCommentsInput {
+  update: PostUpdateWithoutCommentsDataInput!
+  create: PostCreateWithoutCommentsInput!
+}
+
+input PostUpsertWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput!
+  update: PostUpdateWithoutAuthorDataInput!
+  create: PostCreateWithoutAuthorInput!
+}
+
+input PostWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  message: String
+  message_not: String
+  message_in: [String!]
+  message_not_in: [String!]
+  message_lt: String
+  message_lte: String
+  message_gt: String
+  message_gte: String
+  message_contains: String
+  message_not_contains: String
+  message_starts_with: String
+  message_not_starts_with: String
+  message_ends_with: String
+  message_not_ends_with: String
+  is_published: Boolean
+  is_published_not: Boolean
+  link: String
+  link_not: String
+  link_in: [String!]
+  link_not_in: [String!]
+  link_lt: String
+  link_lte: String
+  link_gt: String
+  link_gte: String
+  link_contains: String
+  link_not_contains: String
+  link_starts_with: String
+  link_not_starts_with: String
+  link_ends_with: String
+  link_not_ends_with: String
+  parent_id: String
+  parent_id_not: String
+  parent_id_in: [String!]
+  parent_id_not_in: [String!]
+  parent_id_lt: String
+  parent_id_lte: String
+  parent_id_gt: String
+  parent_id_gte: String
+  parent_id_contains: String
+  parent_id_not_contains: String
+  parent_id_starts_with: String
+  parent_id_not_starts_with: String
+  parent_id_ends_with: String
+  parent_id_not_ends_with: String
+  privacy: String
+  privacy_not: String
+  privacy_in: [String!]
+  privacy_not_in: [String!]
+  privacy_lt: String
+  privacy_lte: String
+  privacy_gt: String
+  privacy_gte: String
+  privacy_contains: String
+  privacy_not_contains: String
+  privacy_starts_with: String
+  privacy_not_starts_with: String
+  privacy_ends_with: String
+  privacy_not_ends_with: String
+  status_type: Int
+  status_type_not: Int
+  status_type_in: [Int!]
+  status_type_not_in: [Int!]
+  status_type_lt: Int
+  status_type_lte: Int
+  status_type_gt: Int
+  status_type_gte: Int
+  author: UserWhereInput
+  comments_every: CommentWhereInput
+  comments_some: CommentWhereInput
+  comments_none: CommentWhereInput
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [PostWhereInput!]
+  OR: [PostWhereInput!]
+  NOT: [PostWhereInput!]
+}
+
+input PostWhereUniqueInput {
+  id: ID
+}
+
+type Query {
+  comment(where: CommentWhereUniqueInput!): Comment
+  comments(where: CommentWhereInput, orderBy: CommentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Comment]!
+  commentsConnection(where: CommentWhereInput, orderBy: CommentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CommentConnection!
+  exercise(where: ExerciseWhereUniqueInput!): Exercise
+  exercises(where: ExerciseWhereInput, orderBy: ExerciseOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Exercise]!
+  exercisesConnection(where: ExerciseWhereInput, orderBy: ExerciseOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ExerciseConnection!
+  folowPage(where: FolowPageWhereUniqueInput!): FolowPage
+  folowPages(where: FolowPageWhereInput, orderBy: FolowPageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FolowPage]!
+  folowPagesConnection(where: FolowPageWhereInput, orderBy: FolowPageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FolowPageConnection!
+  friend(where: FriendWhereUniqueInput!): Friend
+  friends(where: FriendWhereInput, orderBy: FriendOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Friend]!
+  friendsConnection(where: FriendWhereInput, orderBy: FriendOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FriendConnection!
+  group(where: GroupWhereUniqueInput!): Group
+  groups(where: GroupWhereInput, orderBy: GroupOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Group]!
+  groupsConnection(where: GroupWhereInput, orderBy: GroupOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GroupConnection!
+  menber(where: MenberWhereUniqueInput!): Menber
+  menbers(where: MenberWhereInput, orderBy: MenberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Menber]!
+  menbersConnection(where: MenberWhereInput, orderBy: MenberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MenberConnection!
+  notification(where: NotificationWhereUniqueInput!): Notification
+  notifications(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Notification]!
+  notificationsConnection(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): NotificationConnection!
+  page(where: PageWhereUniqueInput!): Page
+  pages(where: PageWhereInput, orderBy: PageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Page]!
+  pagesConnection(where: PageWhereInput, orderBy: PageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PageConnection!
+  post(where: PostWhereUniqueInput!): Post
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
+  postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
+  question(where: QuestionWhereUniqueInput!): Question
+  questions(where: QuestionWhereInput, orderBy: QuestionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Question]!
+  questionsConnection(where: QuestionWhereInput, orderBy: QuestionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): QuestionConnection!
+  questionGroup(where: QuestionGroupWhereUniqueInput!): QuestionGroup
+  questionGroups(where: QuestionGroupWhereInput, orderBy: QuestionGroupOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [QuestionGroup]!
+  questionGroupsConnection(where: QuestionGroupWhereInput, orderBy: QuestionGroupOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): QuestionGroupConnection!
+  task(where: TaskWhereUniqueInput!): Task
+  tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task]!
+  tasksConnection(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TaskConnection!
+  topic(where: TopicWhereUniqueInput!): Topic
+  topics(where: TopicWhereInput, orderBy: TopicOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Topic]!
+  topicsConnection(where: TopicWhereInput, orderBy: TopicOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TopicConnection!
+  topicGroup(where: TopicGroupWhereUniqueInput!): TopicGroup
+  topicGroups(where: TopicGroupWhereInput, orderBy: TopicGroupOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TopicGroup]!
+  topicGroupsConnection(where: TopicGroupWhereInput, orderBy: TopicGroupOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TopicGroupConnection!
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  node(id: ID!): Node
+}
+
+type Question {
+  id: ID!
+  content: String!
+  type: String
+  questiongroup: QuestionGroup!
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type QuestionConnection {
+  pageInfo: PageInfo!
+  edges: [QuestionEdge]!
+  aggregate: AggregateQuestion!
+}
+
+input QuestionCreateInput {
+  content: String!
+  type: String
+  questiongroup: QuestionGroupCreateOneWithoutQuestionsInput!
+}
+
+input QuestionCreateManyWithoutQuestiongroupInput {
+  create: [QuestionCreateWithoutQuestiongroupInput!]
+  connect: [QuestionWhereUniqueInput!]
+}
+
+input QuestionCreateWithoutQuestiongroupInput {
+  content: String!
+  type: String
+}
+
+type QuestionEdge {
+  node: Question!
+  cursor: String!
+}
+
+type QuestionGroup {
+  id: ID!
+  name: String!
+  description: String
+  page: Page!
+  questions(where: QuestionWhereInput, orderBy: QuestionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Question!]
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type QuestionGroupConnection {
+  pageInfo: PageInfo!
+  edges: [QuestionGroupEdge]!
+  aggregate: AggregateQuestionGroup!
+}
+
+input QuestionGroupCreateInput {
+  name: String!
+  description: String
+  page: PageCreateOneWithoutQuestionGroupsInput!
+  questions: QuestionCreateManyWithoutQuestiongroupInput
+}
+
+input QuestionGroupCreateManyWithoutPageInput {
+  create: [QuestionGroupCreateWithoutPageInput!]
+  connect: [QuestionGroupWhereUniqueInput!]
+}
+
+input QuestionGroupCreateOneWithoutQuestionsInput {
+  create: QuestionGroupCreateWithoutQuestionsInput
+  connect: QuestionGroupWhereUniqueInput
+}
+
+input QuestionGroupCreateWithoutPageInput {
+  name: String!
+  description: String
+  questions: QuestionCreateManyWithoutQuestiongroupInput
+}
+
+input QuestionGroupCreateWithoutQuestionsInput {
+  name: String!
+  description: String
+  page: PageCreateOneWithoutQuestionGroupsInput!
+}
+
+type QuestionGroupEdge {
+  node: QuestionGroup!
+  cursor: String!
+}
+
+enum QuestionGroupOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  description_ASC
+  description_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type QuestionGroupPreviousValues {
+  id: ID!
+  name: String!
+  description: String
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+input QuestionGroupScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [QuestionGroupScalarWhereInput!]
+  OR: [QuestionGroupScalarWhereInput!]
+  NOT: [QuestionGroupScalarWhereInput!]
+}
+
+type QuestionGroupSubscriptionPayload {
+  mutation: MutationType!
+  node: QuestionGroup
+  updatedFields: [String!]
+  previousValues: QuestionGroupPreviousValues
+}
+
+input QuestionGroupSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: QuestionGroupWhereInput
+  AND: [QuestionGroupSubscriptionWhereInput!]
+  OR: [QuestionGroupSubscriptionWhereInput!]
+  NOT: [QuestionGroupSubscriptionWhereInput!]
+}
+
+input QuestionGroupUpdateInput {
+  name: String
+  description: String
+  page: PageUpdateOneRequiredWithoutQuestionGroupsInput
+  questions: QuestionUpdateManyWithoutQuestiongroupInput
+}
+
+input QuestionGroupUpdateManyDataInput {
+  name: String
+  description: String
+}
+
+input QuestionGroupUpdateManyMutationInput {
+  name: String
+  description: String
+}
+
+input QuestionGroupUpdateManyWithoutPageInput {
+  create: [QuestionGroupCreateWithoutPageInput!]
+  delete: [QuestionGroupWhereUniqueInput!]
+  connect: [QuestionGroupWhereUniqueInput!]
+  set: [QuestionGroupWhereUniqueInput!]
+  disconnect: [QuestionGroupWhereUniqueInput!]
+  update: [QuestionGroupUpdateWithWhereUniqueWithoutPageInput!]
+  upsert: [QuestionGroupUpsertWithWhereUniqueWithoutPageInput!]
+  deleteMany: [QuestionGroupScalarWhereInput!]
+  updateMany: [QuestionGroupUpdateManyWithWhereNestedInput!]
+}
+
+input QuestionGroupUpdateManyWithWhereNestedInput {
+  where: QuestionGroupScalarWhereInput!
+  data: QuestionGroupUpdateManyDataInput!
+}
+
+input QuestionGroupUpdateOneRequiredWithoutQuestionsInput {
+  create: QuestionGroupCreateWithoutQuestionsInput
+  update: QuestionGroupUpdateWithoutQuestionsDataInput
+  upsert: QuestionGroupUpsertWithoutQuestionsInput
+  connect: QuestionGroupWhereUniqueInput
+}
+
+input QuestionGroupUpdateWithoutPageDataInput {
+  name: String
+  description: String
+  questions: QuestionUpdateManyWithoutQuestiongroupInput
+}
+
+input QuestionGroupUpdateWithoutQuestionsDataInput {
+  name: String
+  description: String
+  page: PageUpdateOneRequiredWithoutQuestionGroupsInput
+}
+
+input QuestionGroupUpdateWithWhereUniqueWithoutPageInput {
+  where: QuestionGroupWhereUniqueInput!
+  data: QuestionGroupUpdateWithoutPageDataInput!
+}
+
+input QuestionGroupUpsertWithoutQuestionsInput {
+  update: QuestionGroupUpdateWithoutQuestionsDataInput!
+  create: QuestionGroupCreateWithoutQuestionsInput!
+}
+
+input QuestionGroupUpsertWithWhereUniqueWithoutPageInput {
+  where: QuestionGroupWhereUniqueInput!
+  update: QuestionGroupUpdateWithoutPageDataInput!
+  create: QuestionGroupCreateWithoutPageInput!
+}
+
+input QuestionGroupWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  page: PageWhereInput
+  questions_every: QuestionWhereInput
+  questions_some: QuestionWhereInput
+  questions_none: QuestionWhereInput
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [QuestionGroupWhereInput!]
+  OR: [QuestionGroupWhereInput!]
+  NOT: [QuestionGroupWhereInput!]
+}
+
+input QuestionGroupWhereUniqueInput {
+  id: ID
+}
+
+enum QuestionOrderByInput {
+  id_ASC
+  id_DESC
+  content_ASC
+  content_DESC
+  type_ASC
+  type_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type QuestionPreviousValues {
+  id: ID!
+  content: String!
+  type: String
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+input QuestionScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [QuestionScalarWhereInput!]
+  OR: [QuestionScalarWhereInput!]
+  NOT: [QuestionScalarWhereInput!]
+}
+
+type QuestionSubscriptionPayload {
+  mutation: MutationType!
+  node: Question
+  updatedFields: [String!]
+  previousValues: QuestionPreviousValues
+}
+
+input QuestionSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: QuestionWhereInput
+  AND: [QuestionSubscriptionWhereInput!]
+  OR: [QuestionSubscriptionWhereInput!]
+  NOT: [QuestionSubscriptionWhereInput!]
+}
+
+input QuestionUpdateInput {
+  content: String
+  type: String
+  questiongroup: QuestionGroupUpdateOneRequiredWithoutQuestionsInput
+}
+
+input QuestionUpdateManyDataInput {
+  content: String
+  type: String
+}
+
+input QuestionUpdateManyMutationInput {
+  content: String
+  type: String
+}
+
+input QuestionUpdateManyWithoutQuestiongroupInput {
+  create: [QuestionCreateWithoutQuestiongroupInput!]
+  delete: [QuestionWhereUniqueInput!]
+  connect: [QuestionWhereUniqueInput!]
+  set: [QuestionWhereUniqueInput!]
+  disconnect: [QuestionWhereUniqueInput!]
+  update: [QuestionUpdateWithWhereUniqueWithoutQuestiongroupInput!]
+  upsert: [QuestionUpsertWithWhereUniqueWithoutQuestiongroupInput!]
+  deleteMany: [QuestionScalarWhereInput!]
+  updateMany: [QuestionUpdateManyWithWhereNestedInput!]
+}
+
+input QuestionUpdateManyWithWhereNestedInput {
+  where: QuestionScalarWhereInput!
+  data: QuestionUpdateManyDataInput!
+}
+
+input QuestionUpdateWithoutQuestiongroupDataInput {
+  content: String
+  type: String
+}
+
+input QuestionUpdateWithWhereUniqueWithoutQuestiongroupInput {
+  where: QuestionWhereUniqueInput!
+  data: QuestionUpdateWithoutQuestiongroupDataInput!
+}
+
+input QuestionUpsertWithWhereUniqueWithoutQuestiongroupInput {
+  where: QuestionWhereUniqueInput!
+  update: QuestionUpdateWithoutQuestiongroupDataInput!
+  create: QuestionCreateWithoutQuestiongroupInput!
+}
+
+input QuestionWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  questiongroup: QuestionGroupWhereInput
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [QuestionWhereInput!]
+  OR: [QuestionWhereInput!]
+  NOT: [QuestionWhereInput!]
+}
+
+input QuestionWhereUniqueInput {
+  id: ID
+}
+
+type Subscription {
+  comment(where: CommentSubscriptionWhereInput): CommentSubscriptionPayload
+  exercise(where: ExerciseSubscriptionWhereInput): ExerciseSubscriptionPayload
+  folowPage(where: FolowPageSubscriptionWhereInput): FolowPageSubscriptionPayload
+  friend(where: FriendSubscriptionWhereInput): FriendSubscriptionPayload
+  group(where: GroupSubscriptionWhereInput): GroupSubscriptionPayload
+  menber(where: MenberSubscriptionWhereInput): MenberSubscriptionPayload
+  notification(where: NotificationSubscriptionWhereInput): NotificationSubscriptionPayload
+  page(where: PageSubscriptionWhereInput): PageSubscriptionPayload
+  post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
+  question(where: QuestionSubscriptionWhereInput): QuestionSubscriptionPayload
+  questionGroup(where: QuestionGroupSubscriptionWhereInput): QuestionGroupSubscriptionPayload
+  task(where: TaskSubscriptionWhereInput): TaskSubscriptionPayload
+  topic(where: TopicSubscriptionWhereInput): TopicSubscriptionPayload
+  topicGroup(where: TopicGroupSubscriptionWhereInput): TopicGroupSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type Task {
+  id: ID!
+  group: Group!
+  creat_admin: User!
+  exercise: Exercise!
+  body: String
+  point: Float
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type TaskConnection {
+  pageInfo: PageInfo!
+  edges: [TaskEdge]!
+  aggregate: AggregateTask!
+}
+
+input TaskCreateInput {
+  group: GroupCreateOneWithoutTasksInput!
+  creat_admin: UserCreateOneWithoutTasksInput!
+  exercise: ExerciseCreateOneWithoutTasksInput!
+  body: String
+  point: Float
+}
+
+input TaskCreateManyWithoutCreat_adminInput {
+  create: [TaskCreateWithoutCreat_adminInput!]
+  connect: [TaskWhereUniqueInput!]
+}
+
+input TaskCreateManyWithoutExerciseInput {
+  create: [TaskCreateWithoutExerciseInput!]
+  connect: [TaskWhereUniqueInput!]
+}
+
+input TaskCreateManyWithoutGroupInput {
+  create: [TaskCreateWithoutGroupInput!]
+  connect: [TaskWhereUniqueInput!]
+}
+
+input TaskCreateWithoutCreat_adminInput {
+  group: GroupCreateOneWithoutTasksInput!
+  exercise: ExerciseCreateOneWithoutTasksInput!
+  body: String
+  point: Float
+}
+
+input TaskCreateWithoutExerciseInput {
+  group: GroupCreateOneWithoutTasksInput!
+  creat_admin: UserCreateOneWithoutTasksInput!
+  body: String
+  point: Float
+}
+
+input TaskCreateWithoutGroupInput {
+  creat_admin: UserCreateOneWithoutTasksInput!
+  exercise: ExerciseCreateOneWithoutTasksInput!
+  body: String
+  point: Float
+}
+
+type TaskEdge {
+  node: Task!
+  cursor: String!
+}
+
+enum TaskOrderByInput {
+  id_ASC
+  id_DESC
+  body_ASC
+  body_DESC
+  point_ASC
+  point_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type TaskPreviousValues {
+  id: ID!
+  body: String
+  point: Float
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+input TaskScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  body: String
+  body_not: String
+  body_in: [String!]
+  body_not_in: [String!]
+  body_lt: String
+  body_lte: String
+  body_gt: String
+  body_gte: String
+  body_contains: String
+  body_not_contains: String
+  body_starts_with: String
+  body_not_starts_with: String
+  body_ends_with: String
+  body_not_ends_with: String
+  point: Float
+  point_not: Float
+  point_in: [Float!]
+  point_not_in: [Float!]
+  point_lt: Float
+  point_lte: Float
+  point_gt: Float
+  point_gte: Float
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [TaskScalarWhereInput!]
+  OR: [TaskScalarWhereInput!]
+  NOT: [TaskScalarWhereInput!]
+}
+
+type TaskSubscriptionPayload {
+  mutation: MutationType!
+  node: Task
+  updatedFields: [String!]
+  previousValues: TaskPreviousValues
+}
+
+input TaskSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: TaskWhereInput
+  AND: [TaskSubscriptionWhereInput!]
+  OR: [TaskSubscriptionWhereInput!]
+  NOT: [TaskSubscriptionWhereInput!]
+}
+
+input TaskUpdateInput {
+  group: GroupUpdateOneRequiredWithoutTasksInput
+  creat_admin: UserUpdateOneRequiredWithoutTasksInput
+  exercise: ExerciseUpdateOneRequiredWithoutTasksInput
+  body: String
+  point: Float
+}
+
+input TaskUpdateManyDataInput {
+  body: String
+  point: Float
+}
+
+input TaskUpdateManyMutationInput {
+  body: String
+  point: Float
+}
+
+input TaskUpdateManyWithoutCreat_adminInput {
+  create: [TaskCreateWithoutCreat_adminInput!]
+  delete: [TaskWhereUniqueInput!]
+  connect: [TaskWhereUniqueInput!]
+  set: [TaskWhereUniqueInput!]
+  disconnect: [TaskWhereUniqueInput!]
+  update: [TaskUpdateWithWhereUniqueWithoutCreat_adminInput!]
+  upsert: [TaskUpsertWithWhereUniqueWithoutCreat_adminInput!]
+  deleteMany: [TaskScalarWhereInput!]
+  updateMany: [TaskUpdateManyWithWhereNestedInput!]
+}
+
+input TaskUpdateManyWithoutExerciseInput {
+  create: [TaskCreateWithoutExerciseInput!]
+  delete: [TaskWhereUniqueInput!]
+  connect: [TaskWhereUniqueInput!]
+  set: [TaskWhereUniqueInput!]
+  disconnect: [TaskWhereUniqueInput!]
+  update: [TaskUpdateWithWhereUniqueWithoutExerciseInput!]
+  upsert: [TaskUpsertWithWhereUniqueWithoutExerciseInput!]
+  deleteMany: [TaskScalarWhereInput!]
+  updateMany: [TaskUpdateManyWithWhereNestedInput!]
+}
+
+input TaskUpdateManyWithoutGroupInput {
+  create: [TaskCreateWithoutGroupInput!]
+  delete: [TaskWhereUniqueInput!]
+  connect: [TaskWhereUniqueInput!]
+  set: [TaskWhereUniqueInput!]
+  disconnect: [TaskWhereUniqueInput!]
+  update: [TaskUpdateWithWhereUniqueWithoutGroupInput!]
+  upsert: [TaskUpsertWithWhereUniqueWithoutGroupInput!]
+  deleteMany: [TaskScalarWhereInput!]
+  updateMany: [TaskUpdateManyWithWhereNestedInput!]
+}
+
+input TaskUpdateManyWithWhereNestedInput {
+  where: TaskScalarWhereInput!
+  data: TaskUpdateManyDataInput!
+}
+
+input TaskUpdateWithoutCreat_adminDataInput {
+  group: GroupUpdateOneRequiredWithoutTasksInput
+  exercise: ExerciseUpdateOneRequiredWithoutTasksInput
+  body: String
+  point: Float
+}
+
+input TaskUpdateWithoutExerciseDataInput {
+  group: GroupUpdateOneRequiredWithoutTasksInput
+  creat_admin: UserUpdateOneRequiredWithoutTasksInput
+  body: String
+  point: Float
+}
+
+input TaskUpdateWithoutGroupDataInput {
+  creat_admin: UserUpdateOneRequiredWithoutTasksInput
+  exercise: ExerciseUpdateOneRequiredWithoutTasksInput
+  body: String
+  point: Float
+}
+
+input TaskUpdateWithWhereUniqueWithoutCreat_adminInput {
+  where: TaskWhereUniqueInput!
+  data: TaskUpdateWithoutCreat_adminDataInput!
+}
+
+input TaskUpdateWithWhereUniqueWithoutExerciseInput {
+  where: TaskWhereUniqueInput!
+  data: TaskUpdateWithoutExerciseDataInput!
+}
+
+input TaskUpdateWithWhereUniqueWithoutGroupInput {
+  where: TaskWhereUniqueInput!
+  data: TaskUpdateWithoutGroupDataInput!
+}
+
+input TaskUpsertWithWhereUniqueWithoutCreat_adminInput {
+  where: TaskWhereUniqueInput!
+  update: TaskUpdateWithoutCreat_adminDataInput!
+  create: TaskCreateWithoutCreat_adminInput!
+}
+
+input TaskUpsertWithWhereUniqueWithoutExerciseInput {
+  where: TaskWhereUniqueInput!
+  update: TaskUpdateWithoutExerciseDataInput!
+  create: TaskCreateWithoutExerciseInput!
+}
+
+input TaskUpsertWithWhereUniqueWithoutGroupInput {
+  where: TaskWhereUniqueInput!
+  update: TaskUpdateWithoutGroupDataInput!
+  create: TaskCreateWithoutGroupInput!
+}
+
+input TaskWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  group: GroupWhereInput
+  creat_admin: UserWhereInput
+  exercise: ExerciseWhereInput
+  body: String
+  body_not: String
+  body_in: [String!]
+  body_not_in: [String!]
+  body_lt: String
+  body_lte: String
+  body_gt: String
+  body_gte: String
+  body_contains: String
+  body_not_contains: String
+  body_starts_with: String
+  body_not_starts_with: String
+  body_ends_with: String
+  body_not_ends_with: String
+  point: Float
+  point_not: Float
+  point_in: [Float!]
+  point_not_in: [Float!]
+  point_lt: Float
+  point_lte: Float
+  point_gt: Float
+  point_gte: Float
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [TaskWhereInput!]
+  OR: [TaskWhereInput!]
+  NOT: [TaskWhereInput!]
+}
+
+input TaskWhereUniqueInput {
+  id: ID
+}
+
+type Topic {
+  id: ID!
+  name: String!
+  description: String
+  topicGroup: TopicGroup!
+  body: String
+  status: Boolean
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type TopicConnection {
+  pageInfo: PageInfo!
+  edges: [TopicEdge]!
+  aggregate: AggregateTopic!
+}
+
+input TopicCreateInput {
+  name: String!
+  description: String
+  topicGroup: TopicGroupCreateOneWithoutTopicsInput!
+  body: String
+  status: Boolean
+}
+
+input TopicCreateManyWithoutTopicGroupInput {
+  create: [TopicCreateWithoutTopicGroupInput!]
+  connect: [TopicWhereUniqueInput!]
+}
+
+input TopicCreateWithoutTopicGroupInput {
+  name: String!
+  description: String
+  body: String
+  status: Boolean
+}
+
+type TopicEdge {
+  node: Topic!
+  cursor: String!
+}
+
+type TopicGroup {
+  id: ID!
+  name: String!
+  description: String
+  page: Page!
+  topics(where: TopicWhereInput, orderBy: TopicOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Topic!]
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type TopicGroupConnection {
+  pageInfo: PageInfo!
+  edges: [TopicGroupEdge]!
+  aggregate: AggregateTopicGroup!
+}
+
+input TopicGroupCreateInput {
+  name: String!
+  description: String
+  page: PageCreateOneWithoutTopicGroupsInput!
+  topics: TopicCreateManyWithoutTopicGroupInput
+}
+
+input TopicGroupCreateManyWithoutPageInput {
+  create: [TopicGroupCreateWithoutPageInput!]
+  connect: [TopicGroupWhereUniqueInput!]
+}
+
+input TopicGroupCreateOneWithoutTopicsInput {
+  create: TopicGroupCreateWithoutTopicsInput
+  connect: TopicGroupWhereUniqueInput
+}
+
+input TopicGroupCreateWithoutPageInput {
+  name: String!
+  description: String
+  topics: TopicCreateManyWithoutTopicGroupInput
+}
+
+input TopicGroupCreateWithoutTopicsInput {
+  name: String!
+  description: String
+  page: PageCreateOneWithoutTopicGroupsInput!
+}
+
+type TopicGroupEdge {
+  node: TopicGroup!
+  cursor: String!
+}
+
+enum TopicGroupOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  description_ASC
+  description_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type TopicGroupPreviousValues {
+  id: ID!
+  name: String!
+  description: String
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+input TopicGroupScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [TopicGroupScalarWhereInput!]
+  OR: [TopicGroupScalarWhereInput!]
+  NOT: [TopicGroupScalarWhereInput!]
+}
+
+type TopicGroupSubscriptionPayload {
+  mutation: MutationType!
+  node: TopicGroup
+  updatedFields: [String!]
+  previousValues: TopicGroupPreviousValues
+}
+
+input TopicGroupSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: TopicGroupWhereInput
+  AND: [TopicGroupSubscriptionWhereInput!]
+  OR: [TopicGroupSubscriptionWhereInput!]
+  NOT: [TopicGroupSubscriptionWhereInput!]
+}
+
+input TopicGroupUpdateInput {
+  name: String
+  description: String
+  page: PageUpdateOneRequiredWithoutTopicGroupsInput
+  topics: TopicUpdateManyWithoutTopicGroupInput
+}
+
+input TopicGroupUpdateManyDataInput {
+  name: String
+  description: String
+}
+
+input TopicGroupUpdateManyMutationInput {
+  name: String
+  description: String
+}
+
+input TopicGroupUpdateManyWithoutPageInput {
+  create: [TopicGroupCreateWithoutPageInput!]
+  delete: [TopicGroupWhereUniqueInput!]
+  connect: [TopicGroupWhereUniqueInput!]
+  set: [TopicGroupWhereUniqueInput!]
+  disconnect: [TopicGroupWhereUniqueInput!]
+  update: [TopicGroupUpdateWithWhereUniqueWithoutPageInput!]
+  upsert: [TopicGroupUpsertWithWhereUniqueWithoutPageInput!]
+  deleteMany: [TopicGroupScalarWhereInput!]
+  updateMany: [TopicGroupUpdateManyWithWhereNestedInput!]
+}
+
+input TopicGroupUpdateManyWithWhereNestedInput {
+  where: TopicGroupScalarWhereInput!
+  data: TopicGroupUpdateManyDataInput!
+}
+
+input TopicGroupUpdateOneRequiredWithoutTopicsInput {
+  create: TopicGroupCreateWithoutTopicsInput
+  update: TopicGroupUpdateWithoutTopicsDataInput
+  upsert: TopicGroupUpsertWithoutTopicsInput
+  connect: TopicGroupWhereUniqueInput
+}
+
+input TopicGroupUpdateWithoutPageDataInput {
+  name: String
+  description: String
+  topics: TopicUpdateManyWithoutTopicGroupInput
+}
+
+input TopicGroupUpdateWithoutTopicsDataInput {
+  name: String
+  description: String
+  page: PageUpdateOneRequiredWithoutTopicGroupsInput
+}
+
+input TopicGroupUpdateWithWhereUniqueWithoutPageInput {
+  where: TopicGroupWhereUniqueInput!
+  data: TopicGroupUpdateWithoutPageDataInput!
+}
+
+input TopicGroupUpsertWithoutTopicsInput {
+  update: TopicGroupUpdateWithoutTopicsDataInput!
+  create: TopicGroupCreateWithoutTopicsInput!
+}
+
+input TopicGroupUpsertWithWhereUniqueWithoutPageInput {
+  where: TopicGroupWhereUniqueInput!
+  update: TopicGroupUpdateWithoutPageDataInput!
+  create: TopicGroupCreateWithoutPageInput!
+}
+
+input TopicGroupWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  page: PageWhereInput
+  topics_every: TopicWhereInput
+  topics_some: TopicWhereInput
+  topics_none: TopicWhereInput
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [TopicGroupWhereInput!]
+  OR: [TopicGroupWhereInput!]
+  NOT: [TopicGroupWhereInput!]
+}
+
+input TopicGroupWhereUniqueInput {
+  id: ID
+}
+
+enum TopicOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  description_ASC
+  description_DESC
+  body_ASC
+  body_DESC
+  status_ASC
+  status_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type TopicPreviousValues {
+  id: ID!
+  name: String!
+  description: String
+  body: String
+  status: Boolean
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+input TopicScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  body: String
+  body_not: String
+  body_in: [String!]
+  body_not_in: [String!]
+  body_lt: String
+  body_lte: String
+  body_gt: String
+  body_gte: String
+  body_contains: String
+  body_not_contains: String
+  body_starts_with: String
+  body_not_starts_with: String
+  body_ends_with: String
+  body_not_ends_with: String
+  status: Boolean
+  status_not: Boolean
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [TopicScalarWhereInput!]
+  OR: [TopicScalarWhereInput!]
+  NOT: [TopicScalarWhereInput!]
+}
+
+type TopicSubscriptionPayload {
+  mutation: MutationType!
+  node: Topic
+  updatedFields: [String!]
+  previousValues: TopicPreviousValues
+}
+
+input TopicSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: TopicWhereInput
+  AND: [TopicSubscriptionWhereInput!]
+  OR: [TopicSubscriptionWhereInput!]
+  NOT: [TopicSubscriptionWhereInput!]
+}
+
+input TopicUpdateInput {
+  name: String
+  description: String
+  topicGroup: TopicGroupUpdateOneRequiredWithoutTopicsInput
+  body: String
+  status: Boolean
+}
+
+input TopicUpdateManyDataInput {
+  name: String
+  description: String
+  body: String
+  status: Boolean
+}
+
+input TopicUpdateManyMutationInput {
+  name: String
+  description: String
+  body: String
+  status: Boolean
+}
+
+input TopicUpdateManyWithoutTopicGroupInput {
+  create: [TopicCreateWithoutTopicGroupInput!]
+  delete: [TopicWhereUniqueInput!]
+  connect: [TopicWhereUniqueInput!]
+  set: [TopicWhereUniqueInput!]
+  disconnect: [TopicWhereUniqueInput!]
+  update: [TopicUpdateWithWhereUniqueWithoutTopicGroupInput!]
+  upsert: [TopicUpsertWithWhereUniqueWithoutTopicGroupInput!]
+  deleteMany: [TopicScalarWhereInput!]
+  updateMany: [TopicUpdateManyWithWhereNestedInput!]
+}
+
+input TopicUpdateManyWithWhereNestedInput {
+  where: TopicScalarWhereInput!
+  data: TopicUpdateManyDataInput!
+}
+
+input TopicUpdateWithoutTopicGroupDataInput {
+  name: String
+  description: String
+  body: String
+  status: Boolean
+}
+
+input TopicUpdateWithWhereUniqueWithoutTopicGroupInput {
+  where: TopicWhereUniqueInput!
+  data: TopicUpdateWithoutTopicGroupDataInput!
+}
+
+input TopicUpsertWithWhereUniqueWithoutTopicGroupInput {
+  where: TopicWhereUniqueInput!
+  update: TopicUpdateWithoutTopicGroupDataInput!
+  create: TopicCreateWithoutTopicGroupInput!
+}
+
+input TopicWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  topicGroup: TopicGroupWhereInput
+  body: String
+  body_not: String
+  body_in: [String!]
+  body_not_in: [String!]
+  body_lt: String
+  body_lte: String
+  body_gt: String
+  body_gte: String
+  body_contains: String
+  body_not_contains: String
+  body_starts_with: String
+  body_not_starts_with: String
+  body_ends_with: String
+  body_not_ends_with: String
+  status: Boolean
+  status_not: Boolean
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [TopicWhereInput!]
+  OR: [TopicWhereInput!]
+  NOT: [TopicWhereInput!]
+}
+
+input TopicWhereUniqueInput {
+  id: ID
+}
+
+type User {
+  id: ID!
+  name: String!
+  username: String
+  email: String!
+  password: String!
+  phone: String
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
+  friends(where: FriendWhereInput, orderBy: FriendOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Friend!]
+  friendsto(where: FriendWhereInput, orderBy: FriendOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Friend!]
+  menbers(where: MenberWhereInput, orderBy: MenberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Menber!]
+  folows(where: FolowPageWhereInput, orderBy: FolowPageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FolowPage!]
+  comments(where: CommentWhereInput, orderBy: CommentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Comment!]
+  exercises(where: ExerciseWhereInput, orderBy: ExerciseOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Exercise!]
+  tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task!]
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  name: String!
+  username: String
+  email: String!
+  password: String!
+  phone: String
+  posts: PostCreateManyWithoutAuthorInput
+  friends: FriendCreateManyWithoutMeInput
+  friendsto: FriendCreateManyWithoutToInput
+  menbers: MenberCreateManyWithoutUserInput
+  folows: FolowPageCreateManyWithoutUserInput
+  comments: CommentCreateManyWithoutAuthorInput
+  exercises: ExerciseCreateManyWithoutCreat_adminInput
+  tasks: TaskCreateManyWithoutCreat_adminInput
+}
+
+input UserCreateOneWithoutCommentsInput {
+  create: UserCreateWithoutCommentsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutExercisesInput {
+  create: UserCreateWithoutExercisesInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutFolowsInput {
+  create: UserCreateWithoutFolowsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutFriendsInput {
+  create: UserCreateWithoutFriendsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutFriendstoInput {
+  create: UserCreateWithoutFriendstoInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutMenbersInput {
+  create: UserCreateWithoutMenbersInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutTasksInput {
+  create: UserCreateWithoutTasksInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutCommentsInput {
+  name: String!
+  username: String
+  email: String!
+  password: String!
+  phone: String
+  posts: PostCreateManyWithoutAuthorInput
+  friends: FriendCreateManyWithoutMeInput
+  friendsto: FriendCreateManyWithoutToInput
+  menbers: MenberCreateManyWithoutUserInput
+  folows: FolowPageCreateManyWithoutUserInput
+  exercises: ExerciseCreateManyWithoutCreat_adminInput
+  tasks: TaskCreateManyWithoutCreat_adminInput
+}
+
+input UserCreateWithoutExercisesInput {
+  name: String!
+  username: String
+  email: String!
+  password: String!
+  phone: String
+  posts: PostCreateManyWithoutAuthorInput
+  friends: FriendCreateManyWithoutMeInput
+  friendsto: FriendCreateManyWithoutToInput
+  menbers: MenberCreateManyWithoutUserInput
+  folows: FolowPageCreateManyWithoutUserInput
+  comments: CommentCreateManyWithoutAuthorInput
+  tasks: TaskCreateManyWithoutCreat_adminInput
+}
+
+input UserCreateWithoutFolowsInput {
+  name: String!
+  username: String
+  email: String!
+  password: String!
+  phone: String
+  posts: PostCreateManyWithoutAuthorInput
+  friends: FriendCreateManyWithoutMeInput
+  friendsto: FriendCreateManyWithoutToInput
+  menbers: MenberCreateManyWithoutUserInput
+  comments: CommentCreateManyWithoutAuthorInput
+  exercises: ExerciseCreateManyWithoutCreat_adminInput
+  tasks: TaskCreateManyWithoutCreat_adminInput
+}
+
+input UserCreateWithoutFriendsInput {
+  name: String!
+  username: String
+  email: String!
+  password: String!
+  phone: String
+  posts: PostCreateManyWithoutAuthorInput
+  friendsto: FriendCreateManyWithoutToInput
+  menbers: MenberCreateManyWithoutUserInput
+  folows: FolowPageCreateManyWithoutUserInput
+  comments: CommentCreateManyWithoutAuthorInput
+  exercises: ExerciseCreateManyWithoutCreat_adminInput
+  tasks: TaskCreateManyWithoutCreat_adminInput
+}
+
+input UserCreateWithoutFriendstoInput {
+  name: String!
+  username: String
+  email: String!
+  password: String!
+  phone: String
+  posts: PostCreateManyWithoutAuthorInput
+  friends: FriendCreateManyWithoutMeInput
+  menbers: MenberCreateManyWithoutUserInput
+  folows: FolowPageCreateManyWithoutUserInput
+  comments: CommentCreateManyWithoutAuthorInput
+  exercises: ExerciseCreateManyWithoutCreat_adminInput
+  tasks: TaskCreateManyWithoutCreat_adminInput
+}
+
+input UserCreateWithoutMenbersInput {
+  name: String!
+  username: String
+  email: String!
+  password: String!
+  phone: String
+  posts: PostCreateManyWithoutAuthorInput
+  friends: FriendCreateManyWithoutMeInput
+  friendsto: FriendCreateManyWithoutToInput
+  folows: FolowPageCreateManyWithoutUserInput
+  comments: CommentCreateManyWithoutAuthorInput
+  exercises: ExerciseCreateManyWithoutCreat_adminInput
+  tasks: TaskCreateManyWithoutCreat_adminInput
+}
+
+input UserCreateWithoutPostsInput {
+  name: String!
+  username: String
+  email: String!
+  password: String!
+  phone: String
+  friends: FriendCreateManyWithoutMeInput
+  friendsto: FriendCreateManyWithoutToInput
+  menbers: MenberCreateManyWithoutUserInput
+  folows: FolowPageCreateManyWithoutUserInput
+  comments: CommentCreateManyWithoutAuthorInput
+  exercises: ExerciseCreateManyWithoutCreat_adminInput
+  tasks: TaskCreateManyWithoutCreat_adminInput
+}
+
+input UserCreateWithoutTasksInput {
+  name: String!
+  username: String
+  email: String!
+  password: String!
+  phone: String
+  posts: PostCreateManyWithoutAuthorInput
+  friends: FriendCreateManyWithoutMeInput
+  friendsto: FriendCreateManyWithoutToInput
+  menbers: MenberCreateManyWithoutUserInput
+  folows: FolowPageCreateManyWithoutUserInput
+  comments: CommentCreateManyWithoutAuthorInput
+  exercises: ExerciseCreateManyWithoutCreat_adminInput
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  username_ASC
+  username_DESC
+  email_ASC
+  email_DESC
+  password_ASC
+  password_DESC
+  phone_ASC
+  phone_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  name: String!
+  username: String
+  email: String!
+  password: String!
+  phone: String
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+  AND: [UserSubscriptionWhereInput!]
+  OR: [UserSubscriptionWhereInput!]
+  NOT: [UserSubscriptionWhereInput!]
+}
+
+input UserUpdateInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  phone: String
+  posts: PostUpdateManyWithoutAuthorInput
+  friends: FriendUpdateManyWithoutMeInput
+  friendsto: FriendUpdateManyWithoutToInput
+  menbers: MenberUpdateManyWithoutUserInput
+  folows: FolowPageUpdateManyWithoutUserInput
+  comments: CommentUpdateManyWithoutAuthorInput
+  exercises: ExerciseUpdateManyWithoutCreat_adminInput
+  tasks: TaskUpdateManyWithoutCreat_adminInput
+}
+
+input UserUpdateManyMutationInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  phone: String
+}
+
+input UserUpdateOneRequiredWithoutCommentsInput {
+  create: UserCreateWithoutCommentsInput
+  update: UserUpdateWithoutCommentsDataInput
+  upsert: UserUpsertWithoutCommentsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutExercisesInput {
+  create: UserCreateWithoutExercisesInput
+  update: UserUpdateWithoutExercisesDataInput
+  upsert: UserUpsertWithoutExercisesInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutFolowsInput {
+  create: UserCreateWithoutFolowsInput
+  update: UserUpdateWithoutFolowsDataInput
+  upsert: UserUpsertWithoutFolowsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutFriendsInput {
+  create: UserCreateWithoutFriendsInput
+  update: UserUpdateWithoutFriendsDataInput
+  upsert: UserUpsertWithoutFriendsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutFriendstoInput {
+  create: UserCreateWithoutFriendstoInput
+  update: UserUpdateWithoutFriendstoDataInput
+  upsert: UserUpsertWithoutFriendstoInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutMenbersInput {
+  create: UserCreateWithoutMenbersInput
+  update: UserUpdateWithoutMenbersDataInput
+  upsert: UserUpsertWithoutMenbersInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  update: UserUpdateWithoutPostsDataInput
+  upsert: UserUpsertWithoutPostsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutTasksInput {
+  create: UserCreateWithoutTasksInput
+  update: UserUpdateWithoutTasksDataInput
+  upsert: UserUpsertWithoutTasksInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateWithoutCommentsDataInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  phone: String
+  posts: PostUpdateManyWithoutAuthorInput
+  friends: FriendUpdateManyWithoutMeInput
+  friendsto: FriendUpdateManyWithoutToInput
+  menbers: MenberUpdateManyWithoutUserInput
+  folows: FolowPageUpdateManyWithoutUserInput
+  exercises: ExerciseUpdateManyWithoutCreat_adminInput
+  tasks: TaskUpdateManyWithoutCreat_adminInput
+}
+
+input UserUpdateWithoutExercisesDataInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  phone: String
+  posts: PostUpdateManyWithoutAuthorInput
+  friends: FriendUpdateManyWithoutMeInput
+  friendsto: FriendUpdateManyWithoutToInput
+  menbers: MenberUpdateManyWithoutUserInput
+  folows: FolowPageUpdateManyWithoutUserInput
+  comments: CommentUpdateManyWithoutAuthorInput
+  tasks: TaskUpdateManyWithoutCreat_adminInput
+}
+
+input UserUpdateWithoutFolowsDataInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  phone: String
+  posts: PostUpdateManyWithoutAuthorInput
+  friends: FriendUpdateManyWithoutMeInput
+  friendsto: FriendUpdateManyWithoutToInput
+  menbers: MenberUpdateManyWithoutUserInput
+  comments: CommentUpdateManyWithoutAuthorInput
+  exercises: ExerciseUpdateManyWithoutCreat_adminInput
+  tasks: TaskUpdateManyWithoutCreat_adminInput
+}
+
+input UserUpdateWithoutFriendsDataInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  phone: String
+  posts: PostUpdateManyWithoutAuthorInput
+  friendsto: FriendUpdateManyWithoutToInput
+  menbers: MenberUpdateManyWithoutUserInput
+  folows: FolowPageUpdateManyWithoutUserInput
+  comments: CommentUpdateManyWithoutAuthorInput
+  exercises: ExerciseUpdateManyWithoutCreat_adminInput
+  tasks: TaskUpdateManyWithoutCreat_adminInput
+}
+
+input UserUpdateWithoutFriendstoDataInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  phone: String
+  posts: PostUpdateManyWithoutAuthorInput
+  friends: FriendUpdateManyWithoutMeInput
+  menbers: MenberUpdateManyWithoutUserInput
+  folows: FolowPageUpdateManyWithoutUserInput
+  comments: CommentUpdateManyWithoutAuthorInput
+  exercises: ExerciseUpdateManyWithoutCreat_adminInput
+  tasks: TaskUpdateManyWithoutCreat_adminInput
+}
+
+input UserUpdateWithoutMenbersDataInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  phone: String
+  posts: PostUpdateManyWithoutAuthorInput
+  friends: FriendUpdateManyWithoutMeInput
+  friendsto: FriendUpdateManyWithoutToInput
+  folows: FolowPageUpdateManyWithoutUserInput
+  comments: CommentUpdateManyWithoutAuthorInput
+  exercises: ExerciseUpdateManyWithoutCreat_adminInput
+  tasks: TaskUpdateManyWithoutCreat_adminInput
+}
+
+input UserUpdateWithoutPostsDataInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  phone: String
+  friends: FriendUpdateManyWithoutMeInput
+  friendsto: FriendUpdateManyWithoutToInput
+  menbers: MenberUpdateManyWithoutUserInput
+  folows: FolowPageUpdateManyWithoutUserInput
+  comments: CommentUpdateManyWithoutAuthorInput
+  exercises: ExerciseUpdateManyWithoutCreat_adminInput
+  tasks: TaskUpdateManyWithoutCreat_adminInput
+}
+
+input UserUpdateWithoutTasksDataInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  phone: String
+  posts: PostUpdateManyWithoutAuthorInput
+  friends: FriendUpdateManyWithoutMeInput
+  friendsto: FriendUpdateManyWithoutToInput
+  menbers: MenberUpdateManyWithoutUserInput
+  folows: FolowPageUpdateManyWithoutUserInput
+  comments: CommentUpdateManyWithoutAuthorInput
+  exercises: ExerciseUpdateManyWithoutCreat_adminInput
+}
+
+input UserUpsertWithoutCommentsInput {
+  update: UserUpdateWithoutCommentsDataInput!
+  create: UserCreateWithoutCommentsInput!
+}
+
+input UserUpsertWithoutExercisesInput {
+  update: UserUpdateWithoutExercisesDataInput!
+  create: UserCreateWithoutExercisesInput!
+}
+
+input UserUpsertWithoutFolowsInput {
+  update: UserUpdateWithoutFolowsDataInput!
+  create: UserCreateWithoutFolowsInput!
+}
+
+input UserUpsertWithoutFriendsInput {
+  update: UserUpdateWithoutFriendsDataInput!
+  create: UserCreateWithoutFriendsInput!
+}
+
+input UserUpsertWithoutFriendstoInput {
+  update: UserUpdateWithoutFriendstoDataInput!
+  create: UserCreateWithoutFriendstoInput!
+}
+
+input UserUpsertWithoutMenbersInput {
+  update: UserUpdateWithoutMenbersDataInput!
+  create: UserCreateWithoutMenbersInput!
+}
+
+input UserUpsertWithoutPostsInput {
+  update: UserUpdateWithoutPostsDataInput!
+  create: UserCreateWithoutPostsInput!
+}
+
+input UserUpsertWithoutTasksInput {
+  update: UserUpdateWithoutTasksDataInput!
+  create: UserCreateWithoutTasksInput!
+}
+
+input UserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  username: String
+  username_not: String
+  username_in: [String!]
+  username_not_in: [String!]
+  username_lt: String
+  username_lte: String
+  username_gt: String
+  username_gte: String
+  username_contains: String
+  username_not_contains: String
+  username_starts_with: String
+  username_not_starts_with: String
+  username_ends_with: String
+  username_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  phone: String
+  phone_not: String
+  phone_in: [String!]
+  phone_not_in: [String!]
+  phone_lt: String
+  phone_lte: String
+  phone_gt: String
+  phone_gte: String
+  phone_contains: String
+  phone_not_contains: String
+  phone_starts_with: String
+  phone_not_starts_with: String
+  phone_ends_with: String
+  phone_not_ends_with: String
+  posts_every: PostWhereInput
+  posts_some: PostWhereInput
+  posts_none: PostWhereInput
+  friends_every: FriendWhereInput
+  friends_some: FriendWhereInput
+  friends_none: FriendWhereInput
+  friendsto_every: FriendWhereInput
+  friendsto_some: FriendWhereInput
+  friendsto_none: FriendWhereInput
+  menbers_every: MenberWhereInput
+  menbers_some: MenberWhereInput
+  menbers_none: MenberWhereInput
+  folows_every: FolowPageWhereInput
+  folows_some: FolowPageWhereInput
+  folows_none: FolowPageWhereInput
+  comments_every: CommentWhereInput
+  comments_some: CommentWhereInput
+  comments_none: CommentWhereInput
+  exercises_every: ExerciseWhereInput
+  exercises_some: ExerciseWhereInput
+  exercises_none: ExerciseWhereInput
+  tasks_every: TaskWhereInput
+  tasks_some: TaskWhereInput
+  tasks_none: TaskWhereInput
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+}
+
+input UserWhereUniqueInput {
+  id: ID
+  email: String
+  phone: String
+}

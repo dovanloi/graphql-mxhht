@@ -1,0 +1,177 @@
+type User {
+  id: ID! @unique
+  name: String!
+  username: String
+  email: String! @unique
+  password: String!
+  phone: String @unique
+  posts: [Post!]! @relation(name: "PostToUser", onDelete: CASCADE)
+  friends: [Friend!]! @relation(name: "FriendToUser", onDelete: CASCADE)
+  friendsto: [Friend!]! @relation(name: "ToFriendToUser", onDelete: CASCADE)
+  menbers: [Menber!]! @relation(name: "MenberToUser", onDelete: CASCADE)
+  folows: [FolowPage!]! @relation(name: "FolowPageToUser", onDelete: CASCADE)
+  comments: [Comment!]! @relation(name: "CommentToUser", onDelete: CASCADE)
+  exercises: [Exercise!]! @relation(name: "ExerciseToUser", onDelete: CASCADE)
+  tasks: [Task!]! @relation(name: "TaskToUser", onDelete: CASCADE)
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type Friend{
+  me: User! @relation(name: "FriendToUser", onDelete: SET_NULL) @unique
+  to: User! @relation(name: "ToFriendToUser", onDelete: SET_NULL) @unique
+  folow: Boolean
+  status: Int
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type Menber {
+  user: User! @relation(name: "MenberToUser", onDelete: SET_NULL) @unique
+  group: Group! @relation(name: "MenberToGroup", onDelete: SET_NULL) @unique
+  admin_only: Boolean
+  status: Int
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type Group {
+  id: ID! @unique
+  name: String!
+  cover: String
+  description: String
+  email: String
+  icon: String
+  privacy: Int
+  menbers: [Menber!]! @relation(name: "MenberToGroup", onDelete: CASCADE)
+  notifications: [Notification!]! @relation(name: "NotificationToGroup", onDelete: CASCADE)
+  exercises: [Exercise!]! @relation(name: "ExerciseToGroup", onDelete: CASCADE)
+  tasks: [Task!]! @relation(name: "TaskToGroup", onDelete: CASCADE)
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type Notification {
+  id: ID! @unique
+  group: Group! @relation(name: "NotificationToGroup", onDelete: SET_NULL)
+  title: String!
+  body: String!
+  Time: DateTime
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type Exercise{
+  id: ID! @unique
+  group: Group! @relation(name: "ExerciseToGroup", onDelete: SET_NULL)
+  title: String!
+  description: String
+  body: String!
+  arrangement: Boolean
+  quantity_max: Int
+  time: Int
+  start_time: DateTime!
+  end_time: DateTime!
+  creat_admin: User! @relation(name: "ExerciseToUser", onDelete: SET_NULL)
+  tasks: [Task!]! @relation(name: "TaskToExercise", onDelete: CASCADE)
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type Task {
+  id: ID! @unique
+  group: Group! @relation(name: "TaskToGroup", onDelete: SET_NULL)
+  creat_admin: User! @relation(name: "TaskToUser", onDelete: SET_NULL)
+  exercise: Exercise! @relation(name: "TaskToExercise", onDelete: SET_NULL)
+  body: String
+  point: Float
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type Page {
+  id: ID! @unique
+  about: String
+  name: String!
+  phone: String
+  email: String
+  questionGroups: [QuestionGroup!]! @relation(name: "QuestionGroupToPage", onDelete: CASCADE)
+  topicGroups: [TopicGroup!]! @relation(name: "TopicGroupToPage", onDelete: CASCADE)
+  folows: [FolowPage!]! @relation(name: "FolowPageToPage", onDelete: CASCADE)
+  can_post: Boolean
+  pagetype: String
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type FolowPage {
+  user: User! @relation(name: "FolowPageToUser", onDelete: SET_NULL) @unique
+  page: Page! @relation(name: "FolowPageToPage", onDelete: SET_NULL) @unique
+  admin_only: Boolean
+  status: Int
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+type QuestionGroup {
+  id: ID! @unique
+  name: String!
+  description: String
+  page: Page! @relation(name: "QuestionGroupToPage", onDelete: SET_NULL)
+  questions: [Question!]! @relation(name: "QuestionToQuestionGroup", onDelete: CASCADE)
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type Question {
+  id: ID! @unique
+  content: String!
+  type: String
+  questiongroup: QuestionGroup! @relation(name: "QuestionToQuestionGroup", onDelete: SET_NULL)
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type TopicGroup {
+  id: ID! @unique
+  name: String!
+  description: String
+  page: Page! @relation(name: "TopicGroupToPage", onDelete: SET_NULL)
+  topics: [Topic!]! @relation(name: "TopicToTopicGroup", onDelete: CASCADE)
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type Topic {
+  id: ID! @unique
+  name: String!
+  description: String
+  topicGroup: TopicGroup! @relation(name: "TopicToTopicGroup", onDelete: SET_NULL)
+  body: String
+  status: Boolean
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type Post {
+  id: ID! @unique
+  title: String!
+  message: String!
+  is_published: Boolean!
+  link: String
+  parent_id: String
+  privacy: String
+  status_type: Int!
+  author: User! @relation(name: "PostToUser", onDelete: SET_NULL)
+  comments: [Comment!]! @relation(name: "CommentToPost", onDelete: CASCADE)
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type Comment {
+  id: ID! @unique
+  text: String!
+  author: User! @relation(name: "CommentToUser", onDelete: SET_NULL)
+  post: Post!@relation(name: "CommentToPost", onDelete: SET_NULL)
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
